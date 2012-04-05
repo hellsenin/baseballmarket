@@ -286,9 +286,9 @@ public class EgovLoginController {
 			
 			// 3-2. 설정된 메인화면이 없는 경우
 			if (user.getUserSe().equals("USR")) {
-	    		return "egovframework/com/EgovMainView";
+	    		return "egovframework/com/MainView";
 	    	} else {
-	    		return "egovframework/com/EgovMainViewG";
+	    		return "egovframework/com/MainViewG";
 	    	}
 		}
 		*/

@@ -1,5 +1,5 @@
 /**
- *  Class Name : EgovMenuGov.java
+ *  Class Name : MenuGov.java
  *  Description : 메뉴관리 Business Interface class
  *  Modification Information
  *
@@ -24,7 +24,7 @@ import java.util.Vector;
 
 //import com.bbm.util.sim.service.EgovFileTool;
 
-public class EgovMenuGov
+public class MenuGov
 {
 
     // 파일구분자
