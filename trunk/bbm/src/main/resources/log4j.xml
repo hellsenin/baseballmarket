@@ -16,11 +16,11 @@
 
 	<!-- log SQL with timing information, post execution -->
 	<logger name="jdbc.sqlonly" additivity="false">
-		<level value="INFO" />
+		<level value="DEBUG" />
 		<appender-ref ref="console" />
 	</logger>
 	<logger name="org.springframework" additivity="false">
-		<level value="WARN" />
+		<level value="DEBUG" />
 		<appender-ref ref="console" />
 	</logger>
 	
@@ -32,12 +32,12 @@
 	 -->
 	
 	<logger name="org.springframework.web.servlet.view" additivity="false">
-		<level value="WARN" />
+		<level value="DEBUG" />
 		<appender-ref ref="console" />
 	</logger>
 
 	<logger name="org.apache.mybatis" additivity="false">
-		<level value="WARN" />
+		<level value="DEBUG" />
 		<appender-ref ref="console" />
 	</logger>
 

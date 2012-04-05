@@ -6,14 +6,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
-<%-- Header Start ==========================================================--%>
-<jsp:include page="/sps/cmm/header.do" flush="false"/> 
-<%-- Header Start ==========================================================--%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
 <head>
-<title>공통분류코드 등록</title>
+<title>Validator</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link type="text/css" rel="stylesheet" href="/css/adm/code/com.css">
 <link type="text/css" rel="stylesheet" href="/css/adm/code/style.css">

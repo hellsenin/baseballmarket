@@ -76,7 +76,7 @@ public class SampleController {
     */ 
     @RequestMapping(value="/sample/validator_help.do")
 	public String validatorHelp() throws Exception {    
-        return "sample/validator_help";
+        return "sample/validate_help";
     }
     
     

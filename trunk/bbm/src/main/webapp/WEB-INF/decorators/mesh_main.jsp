@@ -247,7 +247,7 @@
 			<ul>
 				<li><span class="folder">템플릿</span>
 					<ul>
-						 <li><span class="file"><a href="/sample/tem/validator_help.do" >validate 템플릿</a></span></li>
+						 <li><span class="file"><a href="/sample/validator_help.do" >validate 템플릿</a></span></li>
 						 <!-- 
 						 <li><span class="file"><a href="/sample/tem/selectTemplateList.do" >게시판 템플릿</a></span></li>
 						 <li><span class="file"><a href="/sample/tem/registerTemplateFile.do" >파일 업로드 템플릿1</a></span></li>
@@ -268,6 +268,16 @@
 						<li><span class="file"><a href="/adm/ccm/DetailCodeList.do" >공통상세코드</a></span></li>
 					</ul>
 				</li>
+				
+				<li><span class="folder">메뉴관리</span>
+					<ul>
+						<li><span class="file"><a href="/admin/prm/ProgramListManageSelect.do" >프로그램관리</a></span></li>
+						<li><span class="file"><a href="" ></a></span></li>
+						<li><span class="file"><a href="" ></a></span></li>
+					</ul>
+				</li>
+				
+				
 			</ul>
 		</li>
 		
