@@ -24,7 +24,7 @@ import java.util.Vector;
 
 //import com.bbm.util.sim.service.EgovFileTool;
 
-public class MenuGov
+public class EgovMenuGov
 {
 
     // 파일구분자
