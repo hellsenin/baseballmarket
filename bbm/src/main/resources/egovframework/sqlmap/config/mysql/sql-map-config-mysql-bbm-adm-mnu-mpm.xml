@@ -4,8 +4,8 @@
 
 <sqlMapConfig>
 
-	<sqlMap resource="egovframework/sqlmap/com/sym/mnu/mpm/EgovMenuManage_SQL_Mysql.xml"/>	
+	<sqlMap resource="egovframework/sqlmap/com/bbm/adm/mnu/mpm/MenuManage_SQL_Mysql.xml"/>	
 	
-	<sqlMap resource="egovframework/sqlmap/com/sym/mnu/mpm/EgovMainMenu_SQL_Mysql.xml"/>
+	<sqlMap resource="egovframework/sqlmap/com/bbm/adm/mnu/mpm/MainMenu_SQL_Mysql.xml"/>
 	
 </sqlMapConfig>

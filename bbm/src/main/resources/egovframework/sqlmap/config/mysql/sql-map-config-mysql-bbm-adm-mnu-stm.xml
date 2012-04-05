@@ -4,6 +4,6 @@
 
 <sqlMapConfig>
 	
-	<sqlMap resource="egovframework/sqlmap/com/sym/mnu/stm/EgovSiteMapng_SQL_Mysql.xml"/>
+	<sqlMap resource="egovframework/sqlmap/com/bbm/adm/mnu/stm/SiteMapng_SQL_Mysql.xml"/>
 
 </sqlMapConfig>

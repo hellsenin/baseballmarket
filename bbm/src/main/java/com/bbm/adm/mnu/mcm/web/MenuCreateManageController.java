@@ -121,7 +121,7 @@ public class MenuCreateManageController {
 		paginationInfo.setTotalRecordCount(totCnt);
 		model.addAttribute("paginationInfo", paginationInfo);
 		model.addAttribute("resultMsg", resultMsg);
-		return "egovframework/com/sym/mnu/mcm/MenuCreatManage";
+		return "bbm/admin/mnu/mcm/MenuCreatManage";
 	}
 
 	/* 메뉴생성 세부조회 */
@@ -151,7 +151,7 @@ public class MenuCreateManageController {
 		model.addAttribute("list_menulist", list_menulist);
 		model.addAttribute("resultVO", menuCreatVO);
 
-		return "egovframework/com/sym/mnu/mcm/MenuCreat";
+		return "bbm/admin/mnu/mcm/MenuCreat";
 	}
 
 	/**
@@ -218,7 +218,7 @@ public class MenuCreateManageController {
 		LoginVO user = (LoginVO) EgovUserDetailsHelper.getAuthenticatedUser();
 		menuSiteMapVO.setCreatPersonId(user.getId());
 		model.addAttribute("resultVO", menuSiteMapVO);
-		return "egovframework/com/sym/mnu/mcm/MenuCreatSiteMap";
+		return "bbm/admin/mnu/mcm/MenuCreatSiteMap";
 	}
 
 	/**
@@ -251,7 +251,7 @@ public class MenuCreateManageController {
 		menuSiteMapVO.setTmpRootPath(EgovProperties.RELATIVE_PATH_PREFIX
 				+ ".." + System.getProperty("file.separator") + ".."
 				+ System.getProperty("file.separator") + "..");
-		menuSiteMapVO.setBndeFilePath("/html/egovframework/com/sym/mnu/mcm/");
+		menuSiteMapVO.setBndeFilePath("/html/bbm/admin/mnu/mcm/");
 
 		/*
 		 * 사이트맵 파일 생성 위치 지정 if ("WINDOWS".equals(Globals.OS_TYPE)) {
@@ -273,7 +273,7 @@ public class MenuCreateManageController {
 		model.addAttribute("list_menulist", list_menulist);
 		model.addAttribute("resultVO", menuSiteMapVO);
 		model.addAttribute("resultMsg", resultMsg);
-		return "egovframework/com/sym/mnu/mcm/MenuCreatSiteMap";
+		return "bbm/admin/mnu/mcm/MenuCreatSiteMap";
 	}
 
 	/* 메뉴사이트맵 생성조회 */
@@ -306,7 +306,7 @@ public class MenuCreateManageController {
 		model.addAttribute("list_menulist", list_menulist);
 
 		model.addAttribute("resultVO", menuSiteMapVO);
-		return "egovframework/com/sym/mnu/mcm/SiteMap";
+		return "bbm/admin/mnu/mcm/SiteMap";
 	}
 
 }
