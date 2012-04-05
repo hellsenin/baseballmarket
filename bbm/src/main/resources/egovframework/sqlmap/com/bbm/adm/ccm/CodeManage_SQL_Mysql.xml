@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<!--
+	수정일          수정자                          수정내용
+  ===========      ========    =================================================
+  2011.10.06		이기하     	 	보안 취약점 점검사항 반영 $->#변경
+-->
+<sqlMap namespace="CodeManage">
+
+	<typeAlias  alias="egovMap"    type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="Code"   type="com.bbm.adm.ccm.service.Code"/>
+	<typeAlias  alias="CodeVO" type="com.bbm.adm.ccm.service.CodeVO"/>
+
+	<select id="CodeManageDAO.selectCodeList" parameterClass="CodeVO" resultClass="egovMap">
+		<![CDATA[
+			SELECT  B.CL_CODE_NM
+			     ,  A.CODE_ID
+			     ,  A.CODE_ID_NM
+			     ,  A.USE_AT
+			  FROM  BBM_CODE   A
+			     ,  BBM_CL_CODE B
+			 WHERE  A.CL_CODE = B.CL_CODE
+		]]>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				<![CDATA[A.CODE_ID LIKE CONCAT ('%', #searchKeyword#,'%')]]>
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="2">
+				<![CDATA[A.CODE_ID_NM LIKE CONCAT ('%', #searchKeyword#,'%')]]>
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="clCode">
+				<![CDATA[A.CL_CODE LIKE CONCAT ('%', #searchKeyword#,'%')]]>
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="clCode">
+				<![CDATA[A.USE_AT = 'Y']]>
+			</isEqual>
+			 LIMIT  #recordCountPerPage# OFFSET #firstIndex#
+	</select>
+
+	<select id="CodeManageDAO.selectCodeListTotCnt" parameterClass="CodeVO" resultClass="int">
+		<![CDATA[
+			SELECT  COUNT(*) totcnt
+			  FROM  BBM_CODE   A
+			     ,  BBM_CL_CODE B
+			 WHERE  A.CL_CODE = B.CL_CODE
+		]]>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				<![CDATA[CODE_ID LIKE CONCAT ('%', #searchKeyword#,'%')]]>
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="2">
+				<![CDATA[CODE_ID_NM LIKE CONCAT ('%', #searchKeyword#,'%')]]>
+			</isEqual>
+	</select>
+
+	<select id="CodeManageDAO.selectCodeDetail" parameterClass="Code" resultClass="Code">
+		<![CDATA[
+            SELECT  B.CL_CODE_NM clCodeNm
+                 ,  A.CL_CODE    clCode
+                 ,  A.CODE_ID    codeId
+			     ,  A.CODE_ID_NM codeIdNm
+                 ,  A.CODE_ID_DC codeIdDc
+                 ,  A.USE_AT     useAt
+			  FROM  BBM_CODE   A
+			     ,  BBM_CL_CODE B
+			 WHERE  A.CL_CODE = B.CL_CODE
+               AND  A.CODE_ID = #codeId#
+		]]>
+	</select>
+
+	<insert id="CodeManageDAO.insertCode">
+		<![CDATA[
+		    INSERT
+		      INTO  BBM_CODE
+		         (  CODE_ID
+		         ,  CODE_ID_NM
+		         ,  CODE_ID_DC
+		         ,  CL_CODE
+		         ,  USE_AT
+		         ,  FRST_REGIST_PNTTM
+		         ,  FRST_REGISTER_ID
+		         ,  LAST_UPDT_PNTTM
+		         ,  LAST_UPDUSR_ID
+		         )
+		    VALUES
+		         (  #codeId#
+		         ,  #codeIdNm#
+		         ,  #codeIdDc#
+		         ,  #clCode#
+		         ,  #useAt#
+		         ,  sysdate()
+		         ,  #frstRegisterId#
+		         ,  sysdate()
+		         ,  #frstRegisterId#
+		         )
+		]]>
+	</insert>
+
+	<update id="CodeManageDAO.updateCode">
+		<![CDATA[
+            UPDATE  BBM_CODE
+               SET  CODE_ID_NM        = #codeIdNm#
+                 ,  CODE_ID_DC        = #codeIdDc#
+                 ,  USE_AT            = #useAt#
+                 ,  LAST_UPDT_PNTTM = sysdate()
+                 ,  LAST_UPDUSR_ID    = #lastUpdusrId#
+             WHERE  CODE_ID           = #codeId#
+		]]>
+	</update>
+
+	<delete id="CodeManageDAO.deleteCode">
+		<![CDATA[
+            UPDATE  BBM_CODE
+               SET  USE_AT  = 'N'
+             WHERE  CODE_ID = #codeId#
+		]]>
+	</delete>
+
+
+</sqlMap>
