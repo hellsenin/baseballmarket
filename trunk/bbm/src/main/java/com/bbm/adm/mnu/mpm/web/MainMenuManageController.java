@@ -66,7 +66,7 @@ public class MainMenuManageController {
      * @return 출력페이지정보 "menu_index"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/MainMenuIndex.do")
+    @RequestMapping(value="/admin/mnu/mpm/MainMenuIndex.do")
     public String selectMainMenuIndex(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		@RequestParam("menuNo") String menuNo,
@@ -88,7 +88,7 @@ public class MainMenuManageController {
      * @return 출력페이지정보 "main_headG", "main_head"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/MainMenu.do")
+    @RequestMapping(value="/admin/mnu/mpm/MainMenu.do")
     public String selectMainMenu(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		ModelMap model)
@@ -127,7 +127,7 @@ public class MainMenuManageController {
      * @return 출력페이지정보 "main_headG", "main_head"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/MainMenuHead.do")
+    @RequestMapping(value="/admin/mnu/mpm/MainMenuHead.do")
     public String selectMainMenuHead(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		ModelMap model)
@@ -168,7 +168,7 @@ public class MainMenuManageController {
      * @return 출력페이지정보 "main_left"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/MainMenuLeft.do")
+    @RequestMapping(value="/admin/mnu/mpm/MainMenuLeft.do")
     public String selectMainMenuLeft(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		@RequestParam("vStartP") String vStartP,
@@ -202,7 +202,7 @@ public class MainMenuManageController {
      * @exception Exception
      */
     /*Right Menu 조회*/
-    @RequestMapping(value="/sym/mnu/mpm/MainMenuRight.do")
+    @RequestMapping(value="/admin/mnu/mpm/MainMenuRight.do")
     public String selectMainMenuRight(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		@RequestParam("vStartP") String vStartP,
@@ -224,7 +224,7 @@ public class MainMenuManageController {
      * @exception Exception
      */
     @IncludedInfo(name="포털(예제) 메인화면", order = 1, gid = 0)
-    @RequestMapping(value="/sym/mnu/mpm/MainMenuHome.do")
+    @RequestMapping(value="/admin/mnu/mpm/MainMenuHome.do")
     public String selectMainMenuHome(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		ModelMap model)

@@ -272,7 +272,7 @@
 				<li><span class="folder">메뉴관리</span>
 					<ul>
 						<li><span class="file"><a href="/admin/prm/ProgramListManageSelect.do" >프로그램관리</a></span></li>
-						<li><span class="file"><a href="" ></a></span></li>
+						<li><span class="file"><a href="/admin/mnu/mpm/MenuListSelect.do" >메뉴관리</a></span></li>
 						<li><span class="file"><a href="" ></a></span></li>
 					</ul>
 				</li>

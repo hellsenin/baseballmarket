@@ -69,11 +69,11 @@ public class SiteMapngController {
     	SiteMapngVO  resultVO = siteMapngService.selectSiteMapng(searchVO);
     	if(resultVO == null){
     		model.addAttribute("resultMsg", "사이트맵을 생성해 주세요.");
-    		return "egovframework/com/sym/mnu/stm/SiteMapng";
+    		return "bbm/admin/mnu/stm/SiteMapng";
     	}
     	log.debug(resultVO.getBndeFileNm());
         model.addAttribute("resultVO", resultVO);
 
-        return "egovframework/com/sym/mnu/stm/SiteMapng";
+        return "bbm/admin/mnu/stm/SiteMapng";
     }
 }

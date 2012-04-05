@@ -108,7 +108,7 @@ public class BkmkMenuManageController {
         model.addAttribute("uniqId", user.getUniqId());
         model.addAttribute("paginationInfo", paginationInfo);
        
-        return "egovframework/com/sym/mnu/bmm/BkmkMenuManageList";
+        return "bbm/admin/mnu/bmm/BkmkMenuManageList";
         
     }
     
@@ -167,7 +167,7 @@ public class BkmkMenuManageController {
             bkmkMenuManage.setProgrmStrePath(bkmkMenuManageService.selectUrl(bkmkMenuManage));
         }
         
-        return "egovframework/com/sym/mnu/bmm/BkmkMenuManageRegist";
+        return "bbm/admin/mnu/bmm/BkmkMenuManageRegist";
     }   
     
     /**
@@ -189,7 +189,7 @@ public class BkmkMenuManageController {
         model.addAttribute("width", width);
         model.addAttribute("height", height);           
        
-        return "egovframework/com/sym/mnu/bmm/EgovModalPopupFrame";
+        return "bbm/admin/mnu/bmm/EgovModalPopupFrame";
     }   
     
     /**
@@ -233,7 +233,7 @@ public class BkmkMenuManageController {
         model.addAttribute("resultCnt", map.get("resultCnt"));
         model.addAttribute("paginationInfo", paginationInfo);
                 
-        return "egovframework/com/sym/mnu/bmm/BkmkMenuPopup";
+        return "bbm/admin/mnu/bmm/BkmkMenuPopup";
     }
   
     /**
@@ -258,7 +258,7 @@ public class BkmkMenuManageController {
         
         beanValidator.validate(bkmkMenuManage, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "egovframework/com/sym/mnu/bmm/BkmkMenuManageRegist";
+            return "bbm/admin/mnu/bmm/BkmkMenuManageRegist";
         }            
      
         bkmkMenuManage.setUserId(user.getId());                    
@@ -301,6 +301,6 @@ public class BkmkMenuManageController {
         model.addAttribute("list_menulist",  map.get("resultList"));
         model.addAttribute("resultMsg", resultMsg);
         
-        return  "egovframework/com/sym/mnu/bmm/EgovBookMarkMenuPopup"; 
+        return  "bbm/admin/mnu/bmm/EgovBookMarkMenuPopup"; 
     }
 }
