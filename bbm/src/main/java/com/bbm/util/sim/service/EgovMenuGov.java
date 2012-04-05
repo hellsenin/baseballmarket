@@ -50,7 +50,7 @@ public class EgovMenuGov
 
 			// 파일이며, 존재하면 파싱 시작
 			if (file.exists() && file.isFile()) {
-			   list = EgovFileTool.parsFileByChar(parFile, parChar, parField);
+			   //list = EgovFileTool.parsFileByChar(parFile, parChar, parField);
 			}else{
 			   list = new Vector();
 			}
