@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.bbm.cmm.LoginVO;
 import com.bbm.cmm.annotation.IncludedInfo;
 import com.bbm.cmm.util.EgovUserDetailsHelper;
-import com.bbm.adm.mnu.mpm.service.EgovMenuManageService;
+import com.bbm.adm.mnu.mpm.service.MenuManageService;
 import com.bbm.adm.mnu.mpm.service.MenuManageVO;
 import egovframework.rte.fdl.property.EgovPropertyService;
 
@@ -37,7 +37,7 @@ import egovframework.rte.fdl.property.EgovPropertyService;
  */
 
 @Controller
-public class EgovMainMenuManageController {
+public class MainMenuManageController {
 	
 	protected Log log = LogFactory.getLog(this.getClass());
 
@@ -45,9 +45,9 @@ public class EgovMainMenuManageController {
     @Resource(name = "propertiesService")
     protected EgovPropertyService propertiesService;
     
-    /** EgovMenuManageService */
+    /** MenuManageService */
 	@Resource(name = "meunManageService")
-    private EgovMenuManageService menuManageService;
+    private MenuManageService menuManageService;
 
     /** EgovFileMngService */
 	//@Resource(name="EgovFileMngService")
@@ -66,7 +66,7 @@ public class EgovMainMenuManageController {
      * @return 출력페이지정보 "menu_index"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/EgovMainMenuIndex.do")
+    @RequestMapping(value="/sym/mnu/mpm/MainMenuIndex.do")
     public String selectMainMenuIndex(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		@RequestParam("menuNo") String menuNo,
@@ -88,7 +88,7 @@ public class EgovMainMenuManageController {
      * @return 출력페이지정보 "main_headG", "main_head"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/EgovMainMenu.do")
+    @RequestMapping(value="/sym/mnu/mpm/MainMenu.do")
     public String selectMainMenu(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		ModelMap model)
@@ -111,9 +111,9 @@ public class EgovMainMenuManageController {
         	// 메인 페이지 이동
 			// G일반 / E기업 / U업무
 			if (user.getUserSe().equals("USR")) {
-	    		return "egovframework/com/EgovMainView";
+	    		return "egovframework/com/MainView";
 	    	} else {
-	    		return "egovframework/com/EgovMainViewG";
+	    		return "egovframework/com/MainViewG";
         	}
         } else {
         	// 오류 페이지 이동
@@ -127,7 +127,7 @@ public class EgovMainMenuManageController {
      * @return 출력페이지정보 "main_headG", "main_head"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/EgovMainMenuHead.do")
+    @RequestMapping(value="/sym/mnu/mpm/MainMenuHead.do")
     public String selectMainMenuHead(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		ModelMap model)
@@ -150,7 +150,7 @@ public class EgovMainMenuManageController {
         	// 메인 페이지 이동
 			// G일반 / E기업 / U업무
 			if (user.getUserSe().equals("USR")) {
-        		return "egovframework/com/main_head"; //"EgovMainViewG"; 일반사용자
+        		return "egovframework/com/main_head"; //"MainViewG"; 일반사용자
         	} else {
         		return "egovframework/com/main_headG"; 
         	}
@@ -168,7 +168,7 @@ public class EgovMainMenuManageController {
      * @return 출력페이지정보 "main_left"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/EgovMainMenuLeft.do")
+    @RequestMapping(value="/sym/mnu/mpm/MainMenuLeft.do")
     public String selectMainMenuLeft(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		@RequestParam("vStartP") String vStartP,
@@ -202,7 +202,7 @@ public class EgovMainMenuManageController {
      * @exception Exception
      */
     /*Right Menu 조회*/
-    @RequestMapping(value="/sym/mnu/mpm/EgovMainMenuRight.do")
+    @RequestMapping(value="/sym/mnu/mpm/MainMenuRight.do")
     public String selectMainMenuRight(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		@RequestParam("vStartP") String vStartP,
@@ -220,11 +220,11 @@ public class EgovMainMenuManageController {
     /**
      * HOME 메인화면 조회한다. 
      * @param menuManageVO  MenuManageVO
-     * @return 출력페이지정보 "EgovMainView","EgovMainViewG"
+     * @return 출력페이지정보 "MainView","MainViewG"
      * @exception Exception
      */
     @IncludedInfo(name="포털(예제) 메인화면", order = 1, gid = 0)
-    @RequestMapping(value="/sym/mnu/mpm/EgovMainMenuHome.do")
+    @RequestMapping(value="/sym/mnu/mpm/MainMenuHome.do")
     public String selectMainMenuHome(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		ModelMap model)
@@ -252,15 +252,15 @@ public class EgovMainMenuManageController {
         	// 메인 페이지 이동
 			// G일반 / E기업 / U업무
         	if (user.getUserSe().equals("GNR")) {//2011.09.07
-        		return "egovframework/com/EgovMainViewG"; //"EgovMainViewG"; 일반사용자
+        		return "egovframework/com/MainViewG"; //"MainViewG"; 일반사용자
         		
         	}else if(user.getUserSe().equals("USR")){//2011.09.07
         		//return "egovframework/com/EgovIndvdlpgeDetail";
-        		return "egovframework/com/EgovMainView";
+        		return "egovframework/com/MainView";
         	}
         	else {
-        		//return "egovframework/com/EgovMainView";//1차 사업 메인화면 
-        		return "egovframework/com/EgovMainView2";//2차 사업 메인화면
+        		//return "egovframework/com/MainView";//1차 사업 메인화면 
+        		return "egovframework/com/MainView2";//2차 사업 메인화면
         	}
         } else {
         	// 오류 페이지 이동

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springmodules.validation.commons.DefaultBeanValidator;
 
-import com.bbm.adm.mnu.mpm.service.EgovMenuManageService;
+import com.bbm.adm.mnu.mpm.service.MenuManageService;
 import com.bbm.adm.mnu.mpm.service.MenuManageVO;
 import com.bbm.adm.prm.service.ProgrmManageService;
 import com.bbm.cmm.ComDefaultVO;
@@ -48,7 +48,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  */
 
 @Controller
-public class EgovMenuManageController {
+public class MenuManageController {
 
 	protected Log log = LogFactory.getLog(this.getClass());
 
@@ -59,11 +59,11 @@ public class EgovMenuManageController {
     @Resource(name = "propertiesService")
     protected EgovPropertyService propertiesService;
 
-    /** EgovMenuManageService */
+    /** MenuManageService */
 	@Resource(name = "meunManageService")
-    private EgovMenuManageService menuManageService;
+    private MenuManageService menuManageService;
 
-    /** EgovMenuManageService */
+    /** MenuManageService */
 	@Resource(name = "progrmManageService")
 	private ProgrmManageService progrmManageService;
 
@@ -86,10 +86,10 @@ public class EgovMenuManageController {
     /**
      * 메뉴정보목록을 상세화면 호출 및 상세조회한다.
      * @param req_menuNo  String
-     * @return 출력페이지정보 "sym/mnu/mpm/EgovMenuDetailSelectUpdt"
+     * @return 출력페이지정보 "sym/mnu/mpm/MenuDetailSelectUpdt"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/EgovMenuManageListDetailSelect.do")
+    @RequestMapping(value="/sym/mnu/mpm/MenuManageListDetailSelect.do")
     public String selectMenuManage(
     		@RequestParam("req_menuNo") String req_menuNo ,
     		@ModelAttribute("searchVO") ComDefaultVO searchVO,
@@ -107,17 +107,17 @@ public class EgovMenuManageController {
     	MenuManageVO resultVO = menuManageService.selectMenuManage(searchVO);
         model.addAttribute("menuManageVO", resultVO);
 
-        return "egovframework/com/sym/mnu/mpm/EgovMenuDetailSelectUpdt";
+        return "egovframework/com/sym/mnu/mpm/MenuDetailSelectUpdt";
     }
 
     /**
      * 메뉴목록 리스트조회한다.
      * @param searchVO ComDefaultVO
-     * @return 출력페이지정보 "sym/mnu/mpm/EgovMenuManage"
+     * @return 출력페이지정보 "sym/mnu/mpm/MenuManage"
      * @exception Exception
      */
     @IncludedInfo(name="메뉴관리리스트", order = 1091 ,gid = 60)
-    @RequestMapping(value="/sym/mnu/mpm/EgovMenuManageSelect.do")
+    @RequestMapping(value="/sym/mnu/mpm/MenuManageSelect.do")
     public String selectMenuManageList(
     		@ModelAttribute("searchVO") ComDefaultVO searchVO,
     		ModelMap model)
@@ -150,16 +150,16 @@ public class EgovMenuManageController {
 		paginationInfo.setTotalRecordCount(totCnt);
         model.addAttribute("paginationInfo", paginationInfo);
 
-      	return "egovframework/com/sym/mnu/mpm/EgovMenuManage";
+      	return "egovframework/com/sym/mnu/mpm/MenuManage";
     }
 
     /**
      * 메뉴목록 멀티 삭제한다.
      * @param checkedMenuNoForDel  String
-     * @return 출력페이지정보 "forward:/sym/mnu/mpm/EgovMenuManageSelect.do"
+     * @return 출력페이지정보 "forward:/sym/mnu/mpm/MenuManageSelect.do"
      * @exception Exception
      */
-    @RequestMapping("/sym/mnu/mpm/EgovMenuManageListDelete.do")
+    @RequestMapping("/sym/mnu/mpm/MenuManageListDelete.do")
     public String deleteMenuManageList(
             @RequestParam("checkedMenuNoForDel") String checkedMenuNoForDel ,
             @ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
@@ -179,14 +179,14 @@ public class EgovMenuManageController {
 
 		if (menuManageService.selectUpperMenuNoByPk(menuManageVO) != 0){
     		resultMsg = egovMessageSource.getMessage("fail.common.delete.upperMenuExist");
-    		sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuManageSelect.do";
+    		sLocationUrl = "forward:/sym/mnu/mpm/MenuManageSelect.do";
 		}else if (delMenuNo == null || (delMenuNo.length ==0)){
     		resultMsg = egovMessageSource.getMessage("fail.common.delete");
-    		sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuManageSelect.do";
+    		sLocationUrl = "forward:/sym/mnu/mpm/MenuManageSelect.do";
 		}else{
 			menuManageService.deleteMenuManageList(checkedMenuNoForDel);
 			resultMsg = egovMessageSource.getMessage("success.common.delete");
-			sLocationUrl ="forward:/sym/mnu/mpm/EgovMenuManageSelect.do";
+			sLocationUrl ="forward:/sym/mnu/mpm/MenuManageSelect.do";
 		}
 		model.addAttribute("resultMsg", resultMsg);
         return sLocationUrl;
@@ -196,11 +196,11 @@ public class EgovMenuManageController {
      * 메뉴정보를 등록화면으로 이동 및 등록 한다.
      * @param menuManageVO    MenuManageVO
      * @param commandMap      Map
-     * @return 출력페이지정보 등록화면 호출시 "sym/mnu/mpm/EgovMenuRegist",
-     *         출력페이지정보 등록처리시 "forward:/sym/mnu/mpm/EgovMenuManageSelect.do"
+     * @return 출력페이지정보 등록화면 호출시 "sym/mnu/mpm/MenuRegist",
+     *         출력페이지정보 등록처리시 "forward:/sym/mnu/mpm/MenuManageSelect.do"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/EgovMenuRegistInsert.do")
+    @RequestMapping(value="/sym/mnu/mpm/MenuRegistInsert.do")
     public String insertMenuManage(
     		Map commandMap,
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
@@ -219,7 +219,7 @@ public class EgovMenuManageController {
 		if(sCmd.equals("insert")){
             beanValidator.validate(menuManageVO, bindingResult);
     		if (bindingResult.hasErrors()){
-    			sLocationUrl = "egovframework/com/sym/mnu/mpm/EgovMenuRegist";
+    			sLocationUrl = "egovframework/com/sym/mnu/mpm/MenuRegist";
     			return sLocationUrl;
     		}
     		if(menuManageService.selectMenuNoByPk(menuManageVO) == 0){
@@ -227,19 +227,19 @@ public class EgovMenuManageController {
     			searchVO.setSearchKeyword(menuManageVO.getProgrmFileNm());
     			if(progrmManageService.selectProgrmNMTotCnt(searchVO)==0){
     	    		resultMsg = egovMessageSource.getMessage("fail.common.insert");
-    		        sLocationUrl = "egovframework/com/sym/mnu/mpm/EgovMenuRegist";
+    		        sLocationUrl = "egovframework/com/sym/mnu/mpm/MenuRegist";
     			}else{
     	        	menuManageService.insertMenuManage(menuManageVO);
             		resultMsg = egovMessageSource.getMessage("success.common.insert");
-    		        sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuManageSelect.do";
+    		        sLocationUrl = "forward:/sym/mnu/mpm/MenuManageSelect.do";
     			}
     		}else{
         		resultMsg = egovMessageSource.getMessage("common.isExist.msg");
-        		sLocationUrl = "egovframework/com/sym/mnu/mpm/EgovMenuRegist";
+        		sLocationUrl = "egovframework/com/sym/mnu/mpm/MenuRegist";
     		}
     		model.addAttribute("resultMsg", resultMsg);
 		}else{
-            sLocationUrl = "egovframework/com/sym/mnu/mpm/EgovMenuRegist";
+            sLocationUrl = "egovframework/com/sym/mnu/mpm/MenuRegist";
         }
 		return sLocationUrl;
     }
@@ -247,10 +247,10 @@ public class EgovMenuManageController {
     /**
      * 메뉴정보를 수정 한다.
      * @param menuManageVO  MenuManageVO
-     * @return 출력페이지정보 "forward:/sym/mnu/mpm/EgovMenuManageSelect.do"
+     * @return 출력페이지정보 "forward:/sym/mnu/mpm/MenuManageSelect.do"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/EgovMenuDetailSelectUpdt.do")
+    @RequestMapping(value="/sym/mnu/mpm/MenuDetailSelectUpdt.do")
     public String updateMenuManage(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		BindingResult bindingResult,
@@ -266,18 +266,18 @@ public class EgovMenuManageController {
     	}*/
         beanValidator.validate(menuManageVO, bindingResult);
 		if (bindingResult.hasErrors()){
-			sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuManageListDetailSelect.do";
+			sLocationUrl = "forward:/sym/mnu/mpm/MenuManageListDetailSelect.do";
 			return sLocationUrl;
 		}
 		ComDefaultVO searchVO = new ComDefaultVO();
 		searchVO.setSearchKeyword(menuManageVO.getProgrmFileNm());
 		if(progrmManageService.selectProgrmNMTotCnt(searchVO)==0){
     		resultMsg = egovMessageSource.getMessage("fail.common.update");
-	        sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuManageListDetailSelect.do";
+	        sLocationUrl = "forward:/sym/mnu/mpm/MenuManageListDetailSelect.do";
 		}else{
 			menuManageService.updateMenuManage(menuManageVO);
 	    	resultMsg = egovMessageSource.getMessage("success.common.update");
-	       	sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuManageSelect.do";
+	       	sLocationUrl = "forward:/sym/mnu/mpm/MenuManageSelect.do";
 		}
     	model.addAttribute("resultMsg", resultMsg);
 		return sLocationUrl;
@@ -286,10 +286,10 @@ public class EgovMenuManageController {
     /**
      * 메뉴정보를 삭제 한다.
      * @param menuManageVO MenuManageVO
-     * @return 출력페이지정보 "forward:/sym/mnu/mpm/EgovMenuManageSelect.do"
+     * @return 출력페이지정보 "forward:/sym/mnu/mpm/MenuManageSelect.do"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/EgovMenuManageDelete.do")
+    @RequestMapping(value="/sym/mnu/mpm/MenuManageDelete.do")
     public String deleteMenuManage(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		ModelMap model)
@@ -304,7 +304,7 @@ public class EgovMenuManageController {
     	if (menuManageService.selectUpperMenuNoByPk(menuManageVO) != 0){
     		resultMsg = egovMessageSource.getMessage("fail.common.delete.upperMenuExist");
     		model.addAttribute("resultMsg", resultMsg);
-    		return "forward:/sym/mnu/mpm/EgovMenuManageSelect.do";
+    		return "forward:/sym/mnu/mpm/MenuManageSelect.do";
 		}
 
     	menuManageService.deleteMenuManage(menuManageVO);
@@ -312,17 +312,17 @@ public class EgovMenuManageController {
     	String _MenuNm = "%";
     	menuManageVO.setMenuNm(_MenuNm);
     	model.addAttribute("resultMsg", resultMsg);
-      	return "forward:/sym/mnu/mpm/EgovMenuManageSelect.do";
+      	return "forward:/sym/mnu/mpm/MenuManageSelect.do";
     }
 
     /**
      * 메뉴리스트를 조회한다.
      * @param searchVO ComDefaultVO
-     * @return 출력페이지정보 "sym/mnu/mpm/EgovMenuList"
+     * @return 출력페이지정보 "sym/mnu/mpm/MenuList"
      * @exception Exception
      */
     @IncludedInfo(name="메뉴리스트관리", order = 1090 ,gid = 60)
-    @RequestMapping(value="/sym/mnu/mpm/EgovMenuListSelect.do")
+    @RequestMapping(value="/sym/mnu/mpm/MenuListSelect.do")
     public String selectMenuList(
     		@ModelAttribute("searchVO") ComDefaultVO searchVO,
     		ModelMap model)
@@ -338,16 +338,16 @@ public class EgovMenuManageController {
     	resultMsg = egovMessageSource.getMessage("success.common.select");
         model.addAttribute("list_menulist", list_menulist);
         model.addAttribute("resultMsg", resultMsg);
-      	return  "egovframework/com/sym/mnu/mpm/EgovMenuList";
+      	return  "egovframework/com/sym/mnu/mpm/MenuList";
     }
 
     /**
      * 메뉴리스트의 메뉴정보를 등록한다.
      * @param menuManageVO MenuManageVO
-     * @return 출력페이지정보 "sym/mnu/mpm/EgovMenuList"
+     * @return 출력페이지정보 "sym/mnu/mpm/MenuList"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/EgovMenuListInsert.do")
+    @RequestMapping(value="/sym/mnu/mpm/MenuListInsert.do")
     public String insertMenuList(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		BindingResult bindingResult,
@@ -364,7 +364,7 @@ public class EgovMenuManageController {
 
         beanValidator.validate(menuManageVO, bindingResult);
 		if (bindingResult.hasErrors()){
-			sLocationUrl = "egovframework/com/sym/mnu/mpm/EgovMenuList";
+			sLocationUrl = "egovframework/com/sym/mnu/mpm/MenuList";
 			return sLocationUrl;
 		}
 
@@ -373,15 +373,15 @@ public class EgovMenuManageController {
 			searchVO.setSearchKeyword(menuManageVO.getProgrmFileNm());
 			if(progrmManageService.selectProgrmNMTotCnt(searchVO)==0){
 	    		resultMsg = egovMessageSource.getMessage("fail.common.insert");
-		        sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuListSelect.do";
+		        sLocationUrl = "forward:/sym/mnu/mpm/MenuListSelect.do";
 			}else{
 	        	menuManageService.insertMenuManage(menuManageVO);
 	    		resultMsg = egovMessageSource.getMessage("success.common.insert");
-		        sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuListSelect.do";
+		        sLocationUrl = "forward:/sym/mnu/mpm/MenuListSelect.do";
 			}
 		}else{
     		resultMsg = egovMessageSource.getMessage("common.isExist.msg");
-    		sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuListSelect.do";
+    		sLocationUrl = "forward:/sym/mnu/mpm/MenuListSelect.do";
 		}
 		model.addAttribute("resultMsg", resultMsg);
       	return sLocationUrl;
@@ -390,10 +390,10 @@ public class EgovMenuManageController {
     /**
      * 메뉴리스트의 메뉴정보를 수정한다.
      * @param menuManageVO MenuManageVO
-     * @return 출력페이지정보 "sym/mnu/mpm/EgovMenuList"
+     * @return 출력페이지정보 "sym/mnu/mpm/MenuList"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/EgovMenuListUpdt.do")
+    @RequestMapping(value="/sym/mnu/mpm/MenuListUpdt.do")
     public String updateMenuList(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		BindingResult bindingResult,
@@ -410,18 +410,18 @@ public class EgovMenuManageController {
 
         beanValidator.validate(menuManageVO, bindingResult);
 		if (bindingResult.hasErrors()){
-			sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuListSelect.do";
+			sLocationUrl = "forward:/sym/mnu/mpm/MenuListSelect.do";
 			return sLocationUrl;
 		}
 		ComDefaultVO searchVO = new ComDefaultVO();
 		searchVO.setSearchKeyword(menuManageVO.getProgrmFileNm());
 		if(progrmManageService.selectProgrmNMTotCnt(searchVO)==0){
     		resultMsg = egovMessageSource.getMessage("fail.common.update");
-	        sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuListSelect.do";
+	        sLocationUrl = "forward:/sym/mnu/mpm/MenuListSelect.do";
 		}else{
 			menuManageService.updateMenuManage(menuManageVO);
 			resultMsg = egovMessageSource.getMessage("success.common.update");
-	        sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuListSelect.do";
+	        sLocationUrl = "forward:/sym/mnu/mpm/MenuListSelect.do";
 		}
 		model.addAttribute("resultMsg", resultMsg);
       	return sLocationUrl;
@@ -430,10 +430,10 @@ public class EgovMenuManageController {
     /**
      * 메뉴리스트의 메뉴정보를 삭제한다.
      * @param menuManageVO MenuManageVO
-     * @return 출력페이지정보 "sym/mnu/mpm/EgovMenuList"
+     * @return 출력페이지정보 "sym/mnu/mpm/MenuList"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/EgovMenuListDelete.do")
+    @RequestMapping(value="/sym/mnu/mpm/MenuListDelete.do")
     public String deleteMenuList(
     		@ModelAttribute("menuManageVO") MenuManageVO menuManageVO,
     		BindingResult bindingResult,
@@ -450,12 +450,12 @@ public class EgovMenuManageController {
 
         beanValidator.validate(menuManageVO, bindingResult);
 		if (bindingResult.hasErrors()){
-			sLocationUrl = "egovframework/com/sym/mnu/mpm/EgovMenuList";
+			sLocationUrl = "egovframework/com/sym/mnu/mpm/MenuList";
 			return sLocationUrl;
 		}
 		menuManageService.deleteMenuManage(menuManageVO);
 		resultMsg = egovMessageSource.getMessage("success.common.delete");
-        sLocationUrl = "forward:/sym/mnu/mpm/EgovMenuListSelect.do";
+        sLocationUrl = "forward:/sym/mnu/mpm/MenuListSelect.do";
 		model.addAttribute("resultMsg", resultMsg);
       	return sLocationUrl;
     }
@@ -463,10 +463,10 @@ public class EgovMenuManageController {
     /**
      * 메뉴리스트의 메뉴정보를 이동 메뉴목록을 조회한다.
      * @param searchVO  ComDefaultVO
-     * @return 출력페이지정보 "sym/mnu/mpm/EgovMenuMvmn"
+     * @return 출력페이지정보 "sym/mnu/mpm/MenuMvmn"
      * @exception Exception
      */
-    @RequestMapping(value="/sym/mnu/mpm/EgovMenuListSelectMvmn.do")
+    @RequestMapping(value="/sym/mnu/mpm/MenuListSelectMvmn.do")
     public String selectMenuListMvmn(
     		@ModelAttribute("searchVO") ComDefaultVO searchVO,
     		ModelMap model)
@@ -480,7 +480,7 @@ public class EgovMenuManageController {
 
     	List list_menulist = menuManageService.selectMenuList();
         model.addAttribute("list_menulist", list_menulist);
-      	return  "egovframework/com/sym/mnu/mpm/EgovMenuMvmn";
+      	return  "egovframework/com/sym/mnu/mpm/MenuMvmn";
     }
 
 

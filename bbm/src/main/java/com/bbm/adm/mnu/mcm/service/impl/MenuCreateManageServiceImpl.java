@@ -13,7 +13,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 
 import com.bbm.cmm.ComDefaultVO;
-import com.bbm.adm.mnu.mcm.service.EgovMenuCreateManageService;
+import com.bbm.adm.mnu.mcm.service.MenuCreateManageService;
 import com.bbm.adm.mnu.mcm.service.MenuCreatVO;
 import com.bbm.adm.mnu.mcm.service.MenuSiteMapVO;
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
@@ -30,7 +30,7 @@ import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
  *   수정일      수정자           수정내용
  *  -------    --------    ---------------------------
  *   2009.03.20  이  용          최초 생성
- *   2011.07.01  서준식          EgovMenuManageServiceImpl에서 메뉴 생성 관련 부분 분리
+ *   2011.07.01  서준식          MenuManageServiceImpl에서 메뉴 생성 관련 부분 분리
  *   2011.10.07  이기하          finally문을 추가하여 에러시 자원반환할 수 있도록 추가
  *   2011.10.12  이기하			 사이트맵 생성시 특수문자 치환
  *
@@ -38,7 +38,7 @@ import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
  * </pre>
  */
 @Service("meunCreateManageService")
-public class EgovMenuCreateManageServiceImpl extends AbstractServiceImpl implements EgovMenuCreateManageService{
+public class MenuCreateManageServiceImpl extends AbstractServiceImpl implements MenuCreateManageService{
 
 	protected Log log = LogFactory.getLog(this.getClass());
 

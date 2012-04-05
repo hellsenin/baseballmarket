@@ -21,7 +21,7 @@ import com.bbm.cmm.ComDefaultVO;
  *
  * </pre>
  */
-public interface EgovMenuCreateManageService {
+public interface MenuCreateManageService {
 	
 	/**
 	 * ID 존재여부를 조회

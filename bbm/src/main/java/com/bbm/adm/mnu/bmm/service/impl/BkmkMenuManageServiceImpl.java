@@ -10,12 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.bbm.adm.mnu.bmm.service.BkmkMenuManage;
 import com.bbm.adm.mnu.bmm.service.BkmkMenuManageVO;
-import com.bbm.adm.mnu.bmm.service.EgovBkmkMenuManageservice;
+import com.bbm.adm.mnu.bmm.service.BkmkMenuManageservice;
 import com.bbm.adm.mnu.mpm.service.MenuManageVO;
+
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
 
 /**
- * @Class Name : EgovBkmkMenuManageServiceImpl.java
+ * @Class Name : BkmkMenuManageServiceImpl.java
  * @Description : 바로가기메뉴를 관리하는 서비스 구현 클래스
  * @Modification Information
  *
@@ -30,7 +31,7 @@ import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
  *
  */
 @Service("bkmkMenuManageservice")
-public class EgovBkmkMenuManageServiceImpl extends AbstractServiceImpl implements EgovBkmkMenuManageservice{
+public class BkmkMenuManageServiceImpl extends AbstractServiceImpl implements BkmkMenuManageservice{
 
     
     @Resource(name = "bkmkMenuManageDAO")
