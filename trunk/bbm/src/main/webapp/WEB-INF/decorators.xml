@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/decorators">
+	<excludes>
+		<pattern>/index.do</pattern>
+	</excludes>
+	<decorator name="main" page="mesh_main.jsp">
+		<pattern>*.do</pattern>
+	</decorator>
+	<decorator name="layout" page="layout.jsp">
+		<pattern>/layout.do</pattern>
+	</decorator>
+	<decorator name="list" page="list.jsp">
+		<pattern>/list.do</pattern>
+	</decorator>	
+</decorators>
