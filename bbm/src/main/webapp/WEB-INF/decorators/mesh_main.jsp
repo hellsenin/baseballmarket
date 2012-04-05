@@ -265,7 +265,7 @@
 					<ul>
 						<li><span class="file"><a href="/admin/ccm/ClCodeList.do" >공통분류코드</a></span></li>
 						<li><span class="file"><a href="/admin/ccm/CodeList.do" >공통코드</a></span></li>
-						<li><span class="file"><a href="/adm/ccm/DetailCodeList.do" >공통상세코드</a></span></li>
+						<li><span class="file"><a href="/admin/ccm/DetailCodeList.do" >공통상세코드</a></span></li>
 					</ul>
 				</li>
 				

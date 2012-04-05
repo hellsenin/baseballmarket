@@ -17,7 +17,7 @@
 			     ,  A.CODE
 			     ,  A.CODE_NM
 			     ,  A.USE_AT
-			  FROM  BBM_DETAIL_CODE A
+			  FROM  BBM_CODE_DETAIL A
 			     ,  BBM_CODE       B
 			 WHERE 	B.USE_AT  = 'Y'
 			   AND  A.CODE_ID = B.CODE_ID
@@ -37,7 +37,7 @@
 	<select id="DetailCodeManageDAO.selectDetailCodeListTotCnt" parameterClass="DetailCodeVO" resultClass="int">
 		<![CDATA[
 			SELECT  COUNT(*) totcnt
-			  FROM  BBM_DETAIL_CODE A
+			  FROM  BBM_CODE_DETAIL A
 			     ,  BBM_CODE       B
 			 WHERE 	B.USE_AT  = 'Y'
 			   AND  A.CODE_ID = B.CODE_ID
@@ -61,7 +61,7 @@
                  ,  A.CODE_NM    codeNm
                  ,  A.CODE_DC    codeDc
                  ,  A.USE_AT     useAt
-              FROM  BBM_DETAIL_CODE A
+              FROM  BBM_CODE_DETAIL A
                  ,  BBM_CODE       B
              WHERE  B.USE_AT  = 'Y'
                AND  A.CODE_ID = B.CODE_ID
@@ -73,7 +73,7 @@
 	<insert id="DetailCodeManageDAO.insertDetailCode">
 		<![CDATA[
 		    INSERT
-		      INTO  BBM_DETAIL_CODE
+		      INTO  BBM_CODE_DETAIL
 		         (  CODE_ID
 		         ,  CODE
 		         ,  CODE_NM
@@ -100,7 +100,7 @@
 
 	<update id="DetailCodeManageDAO.updateDetailCode">
 		<![CDATA[
-            UPDATE  BBM_DETAIL_CODE
+            UPDATE  BBM_CODE_DETAIL
                SET  CODE_NM           = #codeNm#
                  ,  CODE_DC           = #codeDc#
                  ,  USE_AT            = #useAt#
@@ -113,7 +113,7 @@
 
 	<delete id="DetailCodeManageDAO.deleteDetailCode">
 		<![CDATA[
-            UPDATE  BBM_DETAIL_CODE
+            UPDATE  BBM_CODE_DETAIL
                SET  USE_AT    = 'N'
              WHERE  CODE_ID   = #codeId#
                AND  CODE      = #code#
