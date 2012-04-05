@@ -18,7 +18,7 @@ import com.bbm.cmm.ComDefaultVO;
  *
  * </pre>
  */
-public interface EgovSiteMapngService {
+public interface SiteMapngService {
 
 	/**
 	 * 사이트맵 조회

@@ -23,7 +23,7 @@ import com.bbm.cmm.ComDefaultVO;
  * </pre>
  */
 
-public interface EgovMenuManageService {
+public interface MenuManageService {
 
 	/**
 	 * 메뉴 상세정보를 조회

@@ -9,7 +9,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-import com.bbm.adm.mnu.mpm.service.EgovMenuManageService;
+import com.bbm.adm.mnu.mpm.service.MenuManageService;
 import com.bbm.adm.mnu.mpm.service.MenuManageVO;
 import com.bbm.adm.prm.service.ProgrmManageVO;
 import com.bbm.adm.prm.service.impl.ProgrmManageDAO;
@@ -37,7 +37,7 @@ import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
  */
 
 @Service("meunManageService")
-public class EgovMenuManageServiceImpl extends AbstractServiceImpl implements EgovMenuManageService{
+public class MenuManageServiceImpl extends AbstractServiceImpl implements MenuManageService{
 
 	protected Log log = LogFactory.getLog(this.getClass());
 	

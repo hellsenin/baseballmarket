@@ -17,7 +17,7 @@ import org.springmodules.validation.commons.DefaultBeanValidator;
 
 import com.bbm.adm.mnu.bmm.service.BkmkMenuManage;
 import com.bbm.adm.mnu.bmm.service.BkmkMenuManageVO;
-import com.bbm.adm.mnu.bmm.service.EgovBkmkMenuManageservice;
+import com.bbm.adm.mnu.bmm.service.BkmkMenuManageservice;
 import com.bbm.cmm.LoginVO;
 import com.bbm.cmm.annotation.IncludedInfo;
 import com.bbm.cmm.util.EgovUserDetailsHelper;
@@ -44,10 +44,10 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  */
 
 @Controller
-public class EgovBkmkMenuManageController {
+public class BkmkMenuManageController {
           
     @Resource(name = "bkmkMenuManageservice")
-    private EgovBkmkMenuManageservice bkmkMenuManageService;    
+    private BkmkMenuManageservice bkmkMenuManageService;    
 
     @Resource(name = "propertiesService")
     protected EgovPropertyService propertyService;
@@ -55,7 +55,7 @@ public class EgovBkmkMenuManageController {
     @Autowired
     private DefaultBeanValidator beanValidator;
 
-    private static final Logger LOG = Logger.getLogger(EgovBkmkMenuManageController.class.getName());          
+    private static final Logger LOG = Logger.getLogger(BkmkMenuManageController.class.getName());          
       
     /**
      * 바로가기메뉴관리 정보에 대한 목록을 조회한다.
@@ -108,7 +108,7 @@ public class EgovBkmkMenuManageController {
         model.addAttribute("uniqId", user.getUniqId());
         model.addAttribute("paginationInfo", paginationInfo);
        
-        return "egovframework/com/sym/mnu/bmm/EgovBkmkMenuManageList";
+        return "egovframework/com/sym/mnu/bmm/BkmkMenuManageList";
         
     }
     
@@ -121,7 +121,7 @@ public class EgovBkmkMenuManageController {
      * @return
      * @throws Exception
      */    
-    @RequestMapping("/sym/mnu/bmm/EgovBkmkMenuManageDelete.do")
+    @RequestMapping("/sym/mnu/bmm/BkmkMenuManageDelete.do")
     public String deleteMenuManageList(
             @RequestParam("checkMenuIds") String checkMenuIds ,
             @ModelAttribute("bkmkMenuManageVO") BkmkMenuManageVO bkmkMenuManageVO, 
@@ -167,7 +167,7 @@ public class EgovBkmkMenuManageController {
             bkmkMenuManage.setProgrmStrePath(bkmkMenuManageService.selectUrl(bkmkMenuManage));
         }
         
-        return "egovframework/com/sym/mnu/bmm/EgovBkmkMenuManageRegist";
+        return "egovframework/com/sym/mnu/bmm/BkmkMenuManageRegist";
     }   
     
     /**
@@ -233,7 +233,7 @@ public class EgovBkmkMenuManageController {
         model.addAttribute("resultCnt", map.get("resultCnt"));
         model.addAttribute("paginationInfo", paginationInfo);
                 
-        return "egovframework/com/sym/mnu/bmm/EgovBkmkMenuPopup";
+        return "egovframework/com/sym/mnu/bmm/BkmkMenuPopup";
     }
   
     /**
@@ -258,7 +258,7 @@ public class EgovBkmkMenuManageController {
         
         beanValidator.validate(bkmkMenuManage, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "egovframework/com/sym/mnu/bmm/EgovBkmkMenuManageRegist";
+            return "egovframework/com/sym/mnu/bmm/BkmkMenuManageRegist";
         }            
      
         bkmkMenuManage.setUserId(user.getId());                    

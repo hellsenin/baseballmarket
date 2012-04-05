@@ -20,7 +20,7 @@ import java.util.Map;
  *
  * </pre>
  */
-public interface EgovBkmkMenuManageservice {
+public interface BkmkMenuManageservice {
     
     /**
      * 바로가기메뉴관리 정보를 삭제한다.

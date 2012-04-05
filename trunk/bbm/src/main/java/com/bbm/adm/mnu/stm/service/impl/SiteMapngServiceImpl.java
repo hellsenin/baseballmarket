@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.bbm.cmm.ComDefaultVO;
-import com.bbm.adm.mnu.stm.service.EgovSiteMapngService;
+import com.bbm.adm.mnu.stm.service.SiteMapngService;
 import com.bbm.adm.mnu.stm.service.SiteMapngVO;
 import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
 
@@ -26,7 +26,7 @@ import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
  * </pre>
  */
 @Service("siteMapngService")
-public class EgovSiteMapngServiceImpl extends AbstractServiceImpl implements EgovSiteMapngService{
+public class SiteMapngServiceImpl extends AbstractServiceImpl implements SiteMapngService{
 
 	@Resource(name="siteMapngDAO")
     private SiteMapngDAO siteMapngDAO;

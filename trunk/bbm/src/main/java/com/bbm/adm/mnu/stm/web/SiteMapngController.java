@@ -13,7 +13,7 @@ import com.bbm.cmm.ComDefaultVO;
 import com.bbm.cmm.LoginVO;
 import com.bbm.cmm.annotation.IncludedInfo;
 import com.bbm.cmm.util.EgovUserDetailsHelper;
-import com.bbm.adm.mnu.stm.service.EgovSiteMapngService;
+import com.bbm.adm.mnu.stm.service.SiteMapngService;
 import com.bbm.adm.mnu.stm.service.SiteMapngVO;
 import egovframework.rte.fdl.property.EgovPropertyService;
 /**
@@ -35,7 +35,7 @@ import egovframework.rte.fdl.property.EgovPropertyService;
  */
 
 @Controller
-public class EgovSiteMapngController {
+public class SiteMapngController {
 
 
 
@@ -46,19 +46,19 @@ public class EgovSiteMapngController {
     @Resource(name = "propertiesService")
     protected EgovPropertyService propertiesService;
 
-    /** EgovSiteMapngService */
+    /** SiteMapngService */
 	@Resource(name = "siteMapngService")
-    private EgovSiteMapngService siteMapngService;
+    private SiteMapngService siteMapngService;
 
 	/*사이트맵조회*/
     /**
      * 사이트맵 화면을 조회한다.
      * @param searchVO ComDefaultVO
-     * @return 출력페이지정보 "sym/mnu/stm/EgovSiteMapng"
+     * @return 출력페이지정보 "sym/mnu/stm/SiteMapng"
      * @exception Exception
      */
 	@IncludedInfo(name="사이트맵", order = 1101 ,gid = 60)
-    @RequestMapping(value="/sym/mnu/stm/EgovSiteMapng.do")
+    @RequestMapping(value="/sym/mnu/stm/SiteMapng.do")
     public String selectSiteMapng(
     		@ModelAttribute("searchVO") ComDefaultVO searchVO,
     		ModelMap model)
@@ -69,11 +69,11 @@ public class EgovSiteMapngController {
     	SiteMapngVO  resultVO = siteMapngService.selectSiteMapng(searchVO);
     	if(resultVO == null){
     		model.addAttribute("resultMsg", "사이트맵을 생성해 주세요.");
-    		return "egovframework/com/sym/mnu/stm/EgovSiteMapng";
+    		return "egovframework/com/sym/mnu/stm/SiteMapng";
     	}
     	log.debug(resultVO.getBndeFileNm());
         model.addAttribute("resultVO", resultVO);
 
-        return "egovframework/com/sym/mnu/stm/EgovSiteMapng";
+        return "egovframework/com/sym/mnu/stm/SiteMapng";
     }
 }

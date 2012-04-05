@@ -20,7 +20,7 @@ import com.bbm.cmm.LoginVO;
 import com.bbm.cmm.annotation.IncludedInfo;
 import com.bbm.cmm.service.EgovProperties;
 import com.bbm.cmm.util.EgovUserDetailsHelper;
-import com.bbm.adm.mnu.mcm.service.EgovMenuCreateManageService;
+import com.bbm.adm.mnu.mcm.service.MenuCreateManageService;
 import com.bbm.adm.mnu.mcm.service.MenuCreatVO;
 import com.bbm.adm.mnu.mcm.service.MenuSiteMapVO;
 import egovframework.rte.fdl.property.EgovPropertyService;
@@ -44,7 +44,7 @@ import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
  */
 
 @Controller
-public class EgovMenuCreateManageController {
+public class MenuCreateManageController {
 
 	protected Log log = LogFactory.getLog(this.getClass());
 	/* Validator */
@@ -54,9 +54,9 @@ public class EgovMenuCreateManageController {
 	@Resource(name = "propertiesService")
 	protected EgovPropertyService propertiesService;
 
-	/** EgovMenuManageService */
+	/** MenuManageService */
 	@Resource(name = "meunCreateManageService")
-	private EgovMenuCreateManageService menuCreateManageService;
+	private MenuCreateManageService menuCreateManageService;
 
 	/** EgovMessageSource */
 	@Resource(name = "egovMessageSource")
@@ -69,11 +69,11 @@ public class EgovMenuCreateManageController {
 	 * 
 	 * @param searchVO
 	 *            ComDefaultVO
-	 * @return 출력페이지정보 "sym/mnu/mcm/EgovMenuCreatManage"
+	 * @return 출력페이지정보 "sym/mnu/mcm/MenuCreatManage"
 	 * @exception Exception
 	 */
 	@IncludedInfo(name="메뉴생성관리", order = 1100 ,gid = 60)
-	@RequestMapping(value = "/sym/mnu/mcm/EgovMenuCreatManageSelect.do")
+	@RequestMapping(value = "/sym/mnu/mcm/MenuCreatManageSelect.do")
 	public String selectMenuCreatManagList(
 			@ModelAttribute("searchVO") ComDefaultVO searchVO, ModelMap model)
 			throws Exception {
@@ -121,7 +121,7 @@ public class EgovMenuCreateManageController {
 		paginationInfo.setTotalRecordCount(totCnt);
 		model.addAttribute("paginationInfo", paginationInfo);
 		model.addAttribute("resultMsg", resultMsg);
-		return "egovframework/com/sym/mnu/mcm/EgovMenuCreatManage";
+		return "egovframework/com/sym/mnu/mcm/MenuCreatManage";
 	}
 
 	/* 메뉴생성 세부조회 */
@@ -130,10 +130,10 @@ public class EgovMenuCreateManageController {
 	 * 
 	 * @param menuCreatVO
 	 *            MenuCreatVO
-	 * @return 출력페이지정보 "sym/mnu/mcm/EgovMenuCreat"
+	 * @return 출력페이지정보 "sym/mnu/mcm/MenuCreat"
 	 * @exception Exception
 	 */
-	@RequestMapping(value = "/sym/mnu/mcm/EgovMenuCreatSelect.do")
+	@RequestMapping(value = "/sym/mnu/mcm/MenuCreatSelect.do")
 	public String selectMenuCreatList(
 			@ModelAttribute("menuCreatVO") MenuCreatVO menuCreatVO,
 			ModelMap model) throws Exception {
@@ -151,7 +151,7 @@ public class EgovMenuCreateManageController {
 		model.addAttribute("list_menulist", list_menulist);
 		model.addAttribute("resultVO", menuCreatVO);
 
-		return "egovframework/com/sym/mnu/mcm/EgovMenuCreat";
+		return "egovframework/com/sym/mnu/mcm/MenuCreat";
 	}
 
 	/**
@@ -161,10 +161,10 @@ public class EgovMenuCreateManageController {
 	 *            String
 	 * @param checkedMenuNoForInsert
 	 *            String
-	 * @return 출력페이지정보 등록처리시 "forward:/sym/mnu/mcm/EgovMenuCreatSelect.do"
+	 * @return 출력페이지정보 등록처리시 "forward:/sym/mnu/mcm/MenuCreatSelect.do"
 	 * @exception Exception
 	 */
-	@RequestMapping("/sym/mnu/mcm/EgovMenuCreatInsert.do")
+	@RequestMapping("/sym/mnu/mcm/MenuCreatInsert.do")
 	public String insertMenuCreatList(
 			@RequestParam("checkedAuthorForInsert") String checkedAuthorForInsert,
 			@RequestParam("checkedMenuNoForInsert") String checkedMenuNoForInsert,
@@ -188,7 +188,7 @@ public class EgovMenuCreateManageController {
 			resultMsg = egovMessageSource.getMessage("success.common.insert");
 		}
 		model.addAttribute("resultMsg", resultMsg);
-		return "forward:/sym/mnu/mcm/EgovMenuCreatSelect.do";
+		return "forward:/sym/mnu/mcm/MenuCreatSelect.do";
 	}
 
 	/* 메뉴사이트맵 생성조회 */
@@ -197,10 +197,10 @@ public class EgovMenuCreateManageController {
 	 * 
 	 * @param menuSiteMapVO
 	 *            MenuSiteMapVO
-	 * @return 출력페이지정보 등록처리시 "sym/mnu/mcm/EgovMenuCreatSiteMap"
+	 * @return 출력페이지정보 등록처리시 "sym/mnu/mcm/MenuCreatSiteMap"
 	 * @exception Exception
 	 */
-	@RequestMapping(value = "/sym/mnu/mcm/EgovMenuCreatSiteMapSelect.do")
+	@RequestMapping(value = "/sym/mnu/mcm/MenuCreatSiteMapSelect.do")
 	public String selectMenuCreatSiteMap(
 			@ModelAttribute("menuSiteMapVO") MenuSiteMapVO menuSiteMapVO,
 			ModelMap model) throws Exception {
@@ -218,7 +218,7 @@ public class EgovMenuCreateManageController {
 		LoginVO user = (LoginVO) EgovUserDetailsHelper.getAuthenticatedUser();
 		menuSiteMapVO.setCreatPersonId(user.getId());
 		model.addAttribute("resultVO", menuSiteMapVO);
-		return "egovframework/com/sym/mnu/mcm/EgovMenuCreatSiteMap";
+		return "egovframework/com/sym/mnu/mcm/MenuCreatSiteMap";
 	}
 
 	/**
@@ -228,10 +228,10 @@ public class EgovMenuCreateManageController {
 	 *            MenuSiteMapVO
 	 * @param valueHtml
 	 *            String
-	 * @return 출력페이지정보 "sym/mnu/mcm/EgovMenuCreatSiteMap"
+	 * @return 출력페이지정보 "sym/mnu/mcm/MenuCreatSiteMap"
 	 * @exception Exception
 	 */
-	@RequestMapping(value = "/sym/mnu/mcm/EgovMenuCreatSiteMapInsert.do")
+	@RequestMapping(value = "/sym/mnu/mcm/MenuCreatSiteMapInsert.do")
 	public String selectMenuCreatSiteMapInsert(
 			@ModelAttribute("menuSiteMapVO") MenuSiteMapVO menuSiteMapVO,
 			@RequestParam("valueHtml") String valueHtml, ModelMap model)
@@ -273,7 +273,7 @@ public class EgovMenuCreateManageController {
 		model.addAttribute("list_menulist", list_menulist);
 		model.addAttribute("resultVO", menuSiteMapVO);
 		model.addAttribute("resultMsg", resultMsg);
-		return "egovframework/com/sym/mnu/mcm/EgovMenuCreatSiteMap";
+		return "egovframework/com/sym/mnu/mcm/MenuCreatSiteMap";
 	}
 
 	/* 메뉴사이트맵 생성조회 */
@@ -282,10 +282,10 @@ public class EgovMenuCreateManageController {
 	 * 
 	 * @param menuSiteMapVO
 	 *            MenuSiteMapVO
-	 * @return 출력페이지정보 등록처리시 "sym/mnu/mcm/EgovMenuCreatSiteMap"
+	 * @return 출력페이지정보 등록처리시 "sym/mnu/mcm/MenuCreatSiteMap"
 	 * @exception Exception
 	 */
-	@RequestMapping(value = "/sym/mnu/mcm/EgovSiteMap.do")
+	@RequestMapping(value = "/sym/mnu/mcm/SiteMap.do")
 	public String selectSiteMap(
 			@ModelAttribute("menuCreatVO") MenuSiteMapVO menuSiteMapVO,
 			ModelMap model) throws Exception {
@@ -306,7 +306,7 @@ public class EgovMenuCreateManageController {
 		model.addAttribute("list_menulist", list_menulist);
 
 		model.addAttribute("resultVO", menuSiteMapVO);
-		return "egovframework/com/sym/mnu/mcm/EgovSiteMap";
+		return "egovframework/com/sym/mnu/mcm/SiteMap";
 	}
 
 }
