@@ -325,18 +325,22 @@
 		<!-- 실행환경 라이브러리 끝 -->
 
 
-		<!-- <dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency> -->
-		
+		<!-- 톰캣 사용시 이클립스서버 버그로 인해 jsp-api 충돌생김 
 		<dependency>
 	      <groupId>javax.servlet.jsp.jstl</groupId>
 	      <artifactId>jstl-api</artifactId>
 	      <version>1.2</version>
 	      <type>jar</type>
-	    </dependency>
+	    </dependency> 
+	    -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		
+		
 
 		<dependency>
 			<groupId>taglibs</groupId>
