@@ -11,7 +11,7 @@
     
     <!-- FILE LOG ADD -->
     <appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
-    	<param name="file" value="/logs/narastat.log"/>
+    	<param name="file" value="/logs/bbm.log"/>
 		<param name="Append" value="true"/>
 		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
 		<layout class="org.apache.log4j.PatternLayout">
