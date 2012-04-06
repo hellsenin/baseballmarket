@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.bbm.cmm.LoginVO;
 import com.bbm.cop.ems.service.EgovSndngMailRegistService;
 import com.bbm.cop.ems.service.SndngMailVO;
-import com.bbm.uat.uia.service.EgovLoginService;
+import com.bbm.uat.uia.service.LoginService;
 import com.bbm.util.fcc.service.EgovNumberUtil;
 import com.bbm.util.fcc.service.EgovStringUtil;
 import com.bbm.util.sim.service.EgovFileScrty;
@@ -30,8 +30,8 @@ import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
  *  </pre>
  */
 @Service("loginService")
-public class EgovLoginServiceImpl extends AbstractServiceImpl implements
-        EgovLoginService {
+public class LoginServiceImpl extends AbstractServiceImpl implements
+        LoginService {
 
     @Resource(name="loginDAO")
     private LoginDAO loginDAO;
@@ -42,28 +42,7 @@ public class EgovLoginServiceImpl extends AbstractServiceImpl implements
 	
 	
 	
-	/**
-     * 2011.08.26
-	 * EsntlId를 이용한 로그인을 처리한다
-	 * @param vo LoginVO
-	 * @return LoginVO
-	 * @exception Exception
-	 */
-    public LoginVO actionLoginByEsntlId(LoginVO vo) throws Exception {
-    	
-    	
-    	LoginVO loginVO = loginDAO.actionLoginByEsntlId(vo);
-    	
-    	// 3. 결과를 리턴한다.
-    	if (loginVO != null && !loginVO.getId().equals("") && !loginVO.getPassword().equals("")) {
-    		return loginVO;
-    	} else {
-    		loginVO = new LoginVO();
-    	}
-    	
-    	return loginVO;
-    }
-	
+
     
     /**
 	 * 일반 로그인을 처리한다
@@ -90,26 +69,7 @@ public class EgovLoginServiceImpl extends AbstractServiceImpl implements
     	return loginVO;
     }
     
-    /**
-	 * 인증서 로그인을 처리한다
-	 * @param vo LoginVO
-	 * @return LoginVO
-	 * @exception Exception
-	 */
-    public LoginVO actionCrtfctLogin(LoginVO vo) throws Exception {
-    	
-    	// 1. DN값으로 ID, PW를 조회한다.
-    	LoginVO loginVO = loginDAO.actionCrtfctLogin(vo);
-    	
-    	// 3. 결과를 리턴한다.
-    	if (loginVO != null && !loginVO.getId().equals("") && !loginVO.getPassword().equals("")) {
-    		return loginVO;
-    	} else {
-    		loginVO = new LoginVO();
-    	}
-    	
-    	return loginVO;
-    }
+    
     
     /**
 	 * 아이디를 찾는다.
