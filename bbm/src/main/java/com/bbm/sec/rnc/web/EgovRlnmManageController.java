@@ -44,7 +44,7 @@ public class EgovRlnmManageController {
     /**
      * 실명인증확인화면 호출(주민번호) 
      * @param model 모델
-     * @return "egovframework/com/uss/umt/EgovStplatCnfirm"
+     * @return "bbm/uss/umt/EgovStplatCnfirm"
      * @exception Exception
      */
     @RequestMapping("/sec/rnc/EgovRlnmCnfirm.do")
@@ -91,7 +91,7 @@ public class EgovRlnmManageController {
     /**
      * 실명인증확인화면 호출(GPIN) 
      * @param model 모델
-     * @return "egovframework/com/uss/umt/EgovStplatCnfirm"
+     * @return "bbm/uss/umt/EgovStplatCnfirm"
      * @exception Exception
      */
     @RequestMapping("/sec/rnc/EgovRlnmPinCnfirm.do")
@@ -126,7 +126,7 @@ log.debug("realName:"+realName);
     /**
      * 실명인증확인화면 호출(GPIN) 
      * @param model 모델
-     * @return "egovframework/com/uss/umt/EgovStplatCnfirm"
+     * @return "bbm/uss/umt/EgovStplatCnfirm"
      * @exception Exception
      */
     @RequestMapping("/sec/rnc/EgovGPinCall.do")
