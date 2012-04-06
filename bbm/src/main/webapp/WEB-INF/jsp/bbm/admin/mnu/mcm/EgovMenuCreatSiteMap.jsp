@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<%@ page import="egovframework.com.cmm.service.Globals"  %>
+<%@ page import="com.bbm.cmm.service.Globals"  %>
 <%
  /**
   * @Class Name : EgovMenuCreatSiteMap.jsp

@@ -76,7 +76,7 @@ public class BkmkMenuManageController {
         Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
         
         if(!isAuthenticated) {
-            return "egovframework/com/uat/uia/EgovLoginUsr";
+            return "bbm/uat/uia/LoginUsr";
         } 
 
         bkmkMenuManageVO.setPageUnit(propertyService.getInt("pageUnit"));
@@ -135,7 +135,7 @@ public class BkmkMenuManageController {
         
         if(!isAuthenticated) {
             //    model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
-            return "egovframework/com/uat/uia/EgovLoginUsr";
+            return "bbm/uat/uia/LoginUsr";
         }
                
         String [] temp = checkMenuIds.split(",");
@@ -253,7 +253,7 @@ public class BkmkMenuManageController {
         Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();   
         
         if(!isAuthenticated) {
-            return "egovframework/com/uat/uia/EgovLoginUsr";
+            return "bbm/uat/uia/LoginUsr";
         } 
         
         beanValidator.validate(bkmkMenuManage, bindingResult);
@@ -287,7 +287,7 @@ public class BkmkMenuManageController {
         Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
        
         if(!isAuthenticated) {
-               return "egovframework/com/uat/uia/EgovLoginUsr";
+               return "bbm/uat/uia/LoginUsr";
         }       */ 
     
         bkmkMenuManageVO.setFirstIndex(0);

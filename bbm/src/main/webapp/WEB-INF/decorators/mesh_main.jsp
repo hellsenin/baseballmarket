@@ -12,7 +12,6 @@
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 
 	<title><decorator:title default="베이스볼마켓" /></title>
-	<decorator:head/>
 	<script type="text/javascript" src="/js/common/jquery/layout/jquery-latest.js"></script>
 	<script type="text/javascript" src="/js/common/jquery/layout/jquery-ui-latest.js"></script>
 	<script type="text/javascript" src="/js/common/jquery/layout/jquery.layout.js"></script>
@@ -20,6 +19,20 @@
 	
 	
 	<script type="text/javascript">
+	
+	function actionLoginTop() {
+
+	    if (document.loginFormTop.id.value =="") {
+	        alert("아이디를 입력하세요");
+	    } else if (document.loginFormTop.password.value =="") {
+	        alert("비밀번호를 입력하세요");
+	    } else {
+	        document.loginFormTop.action="<c:url value='/uat/uia/actionLogin.do'/>";
+	        //document.loginForm.j_username.value = document.loginForm.userSe.value + document.loginForm.username.value;
+	        //document.loginForm.action="<c:url value='/j_spring_security_check'/>";
+	        document.loginFormTop.submit();
+	    }
+	}
 	
 	function toggleLiveResizing () {
 		$.each('north,south,west,east'.split(','), function (i, pane) {
@@ -101,12 +114,14 @@
 
 		// if there is no state-cookie, then DISABLE state management initially
 
+		
 		var cookieExists = true;
+		/*
 		for (var key in myLayout.getCookie()) {
 			cookieExists = true;
 			break
 		}
-
+		
 		if (!cookieExists) toggleStateManagement( true );
 		// add event to the 'Close' button in the East pane dynamically...
 		myLayout.addCloseBtn('#btnCloseEast', 'east');
@@ -120,7 +135,11 @@
 		// 'Reset State' button requires updated functionality in rc29.15
 		if ($.layout.revision && $.layout.revision >= 0.032915)
 			$('#btnReset').show();
+		*/
  	});
+	
+	
+	
 	</script>
 
 	<link type="text/css" rel="stylesheet" href="/css/common/jquery/layout-default-latest.css" />
@@ -161,16 +180,19 @@
 	 */
 
 	</style>
+	
+	<decorator:head/>
+	
 </head>
 <body>
 	
 <!-- 상단영역 -->
 <div class="ui-layout-north" onmouseover="myLayout.allowOverflow('north')" onmouseout="myLayout.resetOverflow(this)">
-	 <form:form commandName="loginVO" name="loginForm"  method="post">
+	 <form:form commandName="loginVO" name="loginFormTop"  method="post">
 	<div id="login" align="left">
 		아이디:<input name="userId" type="text" value="" size="15" maxlength="20">&nbsp;
 		비밀번호:<input name="password" type="password" value="" size="15" maxlength="20">&nbsp;
-		<button onClick="actionLogin()">로그인</button>
+		<button onClick="actionLoginTop()">로그인</button>
 	<input name="devLoginAt" type="hidden" value="Y" >&nbsp;
 	</div>
 	</form:form>
@@ -259,6 +281,13 @@
 					</ul>
 				</li>
 				
+				<li><span class="folder">사용자관리</span>
+					<ul>
+						<li><span class="file"><a href="/uat/uia/LoginUsr.do" >로그인</a></span></li>
+						<li><span class="file"><a href="" ></a></span></li>
+						<li><span class="file"><a href="" ></a></span></li>
+					</ul>
+				</li>
 				
 				
 				<li><span class="folder">공통코드관리</span>

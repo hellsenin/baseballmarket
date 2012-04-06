@@ -84,7 +84,7 @@ public class MenuCreateManageController {
 		if (!isAuthenticated) {
 			model.addAttribute("message", egovMessageSource
 					.getMessage("fail.common.login"));
-			return "egovframework/com/uat/uia/EgovLoginUsr";
+			return "bbm/uat/uia/LoginUsr";
 		}*/
 		// 내역 조회
 		/** EgovPropertyService.sample */
@@ -143,7 +143,7 @@ public class MenuCreateManageController {
 		if (!isAuthenticated) {
 			model.addAttribute("message", egovMessageSource
 					.getMessage("fail.common.login"));
-			return "egovframework/com/uat/uia/EgovLoginUsr";
+			return "bbm/uat/uia/LoginUsr";
 		}*/
 		
 		List list_menulist = menuCreateManageService
@@ -177,7 +177,7 @@ public class MenuCreateManageController {
 		if (!isAuthenticated) {
 			model.addAttribute("message", egovMessageSource
 					.getMessage("fail.common.login"));
-			return "egovframework/com/uat/uia/EgovLoginUsr";
+			return "bbm/uat/uia/LoginUsr";
 		}*/
 		String[] insertMenuNo = checkedMenuNoForInsert.split(",");
 		if (insertMenuNo == null || (insertMenuNo.length == 0)) {
@@ -210,7 +210,7 @@ public class MenuCreateManageController {
 		if (!isAuthenticated) {
 			model.addAttribute("message", egovMessageSource
 					.getMessage("fail.common.login"));
-			return "egovframework/com/uat/uia/EgovLoginUsr";
+			return "bbm/uat/uia/LoginUsr";
 		}*/
 		List list_menulist = menuCreateManageService
 				.selectMenuCreatSiteMapList(menuSiteMapVO);
@@ -244,7 +244,7 @@ public class MenuCreateManageController {
 		if (!isAuthenticated) {
 			model.addAttribute("message", egovMessageSource
 					.getMessage("fail.common.login"));
-			return "egovframework/com/uat/uia/EgovLoginUsr";
+			return "bbm/uat/uia/LoginUsr";
 		}*/
 
 		
@@ -295,7 +295,7 @@ public class MenuCreateManageController {
 		if (!isAuthenticated) {
 			model.addAttribute("message", egovMessageSource
 					.getMessage("fail.common.login"));
-			return "egovframework/com/uat/uia/EgovLoginUsr";
+			return "bbm/uat/uia/LoginUsr";
 		}*/
 
 		LoginVO user = (LoginVO) EgovUserDetailsHelper.getAuthenticatedUser();

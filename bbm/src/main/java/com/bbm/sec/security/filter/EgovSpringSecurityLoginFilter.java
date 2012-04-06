@@ -21,7 +21,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import com.bbm.cmm.EgovMessageSource;
 import com.bbm.cmm.LoginVO;
 import com.bbm.cmm.util.EgovUserDetailsHelper;
-import com.bbm.uat.uia.service.EgovLoginService;
+import com.bbm.uat.uia.service.LoginService;
 
 
 /**
@@ -59,7 +59,7 @@ private FilterConfig config;
 		loginURL = loginURL.replaceAll("\r", "").replaceAll("\n", "");	// 2011.10.25 보안점검 후속조치
 		
 		ApplicationContext act = WebApplicationContextUtils.getRequiredWebApplicationContext(config.getServletContext());
-		EgovLoginService loginService = (EgovLoginService) act.getBean("loginService");
+		LoginService loginService = (LoginService) act.getBean("loginService");
 		EgovMessageSource egovMessageSource = (EgovMessageSource)act.getBean("egovMessageSource");
 		
 		HttpServletRequest httpRequest = (HttpServletRequest)request;
@@ -81,7 +81,7 @@ private FilterConfig config;
 				try{
 					//세션 토큰 정보를 가지고 DB로부터 사용자 정보를 가져옴
 					LoginVO loginVO = (LoginVO)session.getAttribute("loginVOForDBAuthentication");				
-					loginVO = loginService.actionLoginByEsntlId(loginVO);
+					//loginVO = loginService.actionLoginByEsntlId(loginVO);
 					
 					if(loginVO != null && loginVO.getId() != null && !loginVO.getId().equals("")){				
 						//세션 로그인 
