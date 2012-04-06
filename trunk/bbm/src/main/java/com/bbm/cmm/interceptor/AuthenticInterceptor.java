@@ -69,7 +69,7 @@ public class AuthenticInterceptor extends HandlerInterceptorAdapter {
 			}
 			
 			if(!isPermittedURL){
-				ModelAndView modelAndView = new ModelAndView("redirect:/uat/uia/egovLoginUsr.do");			
+				ModelAndView modelAndView = new ModelAndView("redirect:/uat/uia/LoginUsr.do");			
 				throw new ModelAndViewDefiningException(modelAndView);
 			}else{
 				return true;

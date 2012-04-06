@@ -145,7 +145,7 @@ public class EgovProcessMonController {
     	Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
     	if(!isAuthenticated) {
     		model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
-        	return "egovframework/com/uat/uia/EgovLoginUsr";
+        	return "bbm/uat/uia/LoginUsr";
     	}
     	
 		//로그인 객체 선언
@@ -230,7 +230,7 @@ public class EgovProcessMonController {
     	Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
     	if(!isAuthenticated) {
     		model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
-        	return "egovframework/com/uat/uia/EgovLoginUsr";
+        	return "bbm/uat/uia/LoginUsr";
     	}
     	
     	processMonService.deleteProcessMon(processMonVO);
