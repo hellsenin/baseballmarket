@@ -340,6 +340,15 @@
 			<version>1.2</version>
 		</dependency>
 		
+		<!-- Cross-Site Scripting -->
+		<!-- tomcat에서 사용시 주석처리 -->
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
 		
 
 		<dependency>
@@ -508,16 +517,7 @@
 			<version>1.2</version>
 		</dependency>
 
-		<!-- Cross-Site Scripting -->
-		<!-- tomcat에서 사용시 주석처리 -->
-		<!--
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
-			<scope>provided</scope>
-		</dependency>
-		 -->
+		
 
 		<!-- LDAP SDK -->
 		<!-- 
