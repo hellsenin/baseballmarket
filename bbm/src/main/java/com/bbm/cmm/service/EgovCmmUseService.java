@@ -46,15 +46,7 @@ public interface EgovCmmUseService {
     @SuppressWarnings("unchecked")
     public Map<String, List<DetailCode>> selectCmmCodeDetails(List voList) throws Exception;
 
-    /**
-     * 조직정보를 코드형태로 리턴한다.
-     * 
-     * @param 조회조건정보 vo
-     * @return 조직정보 List
-     * @throws Exception
-     */
-    public List<DetailCode> selectOgrnztIdDetail(ComDefaultCodeVO vo) throws Exception;
-
+   
     /**
      * 그룹정보를 코드형태로 리턴한다.
      * 
