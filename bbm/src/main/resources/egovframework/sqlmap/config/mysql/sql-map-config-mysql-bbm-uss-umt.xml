@@ -6,5 +6,5 @@
 	<sqlMap resource="egovframework/sqlmap/com/bbm/uss/umt/UserManage_SQL_Mysql.xml"/>
 	<sqlMap resource="egovframework/sqlmap/com/bbm/uss/umt/MberManage_SQL_Mysql.xml"/>
 	<sqlMap resource="egovframework/sqlmap/com/bbm/uss/umt/EntrprsManage_SQL_Mysql.xml"/>
-	<sqlMap resource="egovframework/sqlmap/com/bbm/uss/umt/DeptManage_SQL_Mysql.xml"/>
+	
 </sqlMapConfig>
