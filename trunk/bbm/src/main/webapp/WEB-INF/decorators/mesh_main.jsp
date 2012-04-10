@@ -284,7 +284,7 @@
 				<li><span class="folder">사용자관리</span>
 					<ul>
 						<li><span class="file"><a href="/uat/uia/LoginUsr.do" >로그인</a></span></li>
-						<li><span class="file"><a href="" ></a></span></li>
+						<li><span class="file"><a href="/uss/umt/UserManage.do" >사용자관리</a></span></li>
 						<li><span class="file"><a href="" ></a></span></li>
 					</ul>
 				</li>

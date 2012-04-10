@@ -34,7 +34,7 @@
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
 function fnListPage(){
-    document.passwordChgVO.action = "<c:url value='/uss/umt/EgovUserManage.do'/>";
+    document.passwordChgVO.action = "<c:url value='/uss/umt/UserManage.do'/>";
     document.passwordChgVO.submit();
 }
 function fnUpdate(){
@@ -53,7 +53,7 @@ function fnUpdate(){
 <body>
 <!-- content start -->
         <form name="passwordChgVO" method="post" 
-              action="<c:url value="${'/uss/umt/EgovUserPasswordUpdt.do'}"/>" 
+              action="<c:url value="${'/uss/umt/UserPasswordUpdt.do'}"/>" 
               >
               <!-- onsubmit="javascript:return FormValidation(document.passwordChgVO);" >  -->
         <!-- 상세정보 사용자 삭제시 prameter 전달용 input -->
@@ -115,7 +115,7 @@ function fnUpdate(){
 		                <!-- 수정 -->
 		                <td><span class="button"><input type="submit" value="<spring:message code="button.update" />" onclick="fnUpdate(); return false;" /></span>&nbsp;</td>
 		                <!-- 목록 -->
-		                <td><span class="button"><a href="<c:url value='/uss/umt/EgovUserManage.do'/>" onclick="fnListPage(); return false;"><spring:message code="button.list" /></a></span>&nbsp;</td>
+		                <td><span class="button"><a href="<c:url value='/uss/umt/UserManage.do'/>" onclick="fnListPage(); return false;"><spring:message code="button.list" /></a></span>&nbsp;</td>
 		                <!-- 취소 -->
 		                <td><span class="button"><a href="#LINK" onclick="javascript:document.passwordChgVO.reset();"><spring:message code="button.reset" /></a></span></td>
 		            </tr>

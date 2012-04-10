@@ -77,7 +77,7 @@ function fnDeleteUser() {
     	//alert(checkedIds);
         if(confirm("<spring:message code="common.delete.msg" />")){
         	document.listForm.checkedIdForDel.value=checkedIds;
-            document.listForm.action = "<c:url value='/uss/umt/EgovUserDelete.do'/>";
+            document.listForm.action = "<c:url value='/uss/umt/UserDelete.do'/>";
             document.listForm.submit();
         }
     }
@@ -91,22 +91,22 @@ function fnSelectUser(id) {
         userId = array[1];
     }
    	document.listForm.selectedId.value = userId;
-    document.listForm.action = "<c:url value='/uss/umt/EgovUserSelectUpdtView.do'/>";
+    document.listForm.action = "<c:url value='/uss/umt/UserSelectUpdtView.do'/>";
     document.listForm.submit();
 
 }
 function fnAddUserView() {
-    document.listForm.action = "<c:url value='/uss/umt/EgovUserInsertView.do'/>";
+    document.listForm.action = "<c:url value='/uss/umt/UserInsertView.do'/>";
     document.listForm.submit();
 }
 function fnLinkPage(pageNo){
     document.listForm.pageIndex.value = pageNo;
-    document.listForm.action = "<c:url value='/uss/umt/EgovUserManage.do'/>";
+    document.listForm.action = "<c:url value='/uss/umt/UserManage.do'/>";
     document.listForm.submit();
 }
 function fnSearch(){
 	document.listForm.pageIndex.value = 1;
-	document.listForm.action = "<c:url value='/uss/umt/EgovUserManage.do'/>";
+	document.listForm.action = "<c:url value='/uss/umt/UserManage.do'/>";
     document.listForm.submit();
 }
 function fnViewCheck(){
@@ -127,7 +127,7 @@ function fnViewCheck(){
             </tr>
         </table>
         <!-- content start -->
-        <form name="listForm" action="<c:url value='/uss/umt/EgovUserManage.do'/>" method="post">
+        <form name="listForm" action="<c:url value='/uss/umt/UserManage.do'/>" method="post">
         <input name="selectedId" type="hidden" />
         <input name="checkedIdForDel" type="hidden" />
         <input name="pageIndex" type="hidden" value="<c:out value='${userSearchVO.pageIndex}'/>"/>
@@ -157,8 +157,8 @@ function fnViewCheck(){
                       <tr>
                         <td><span class="button"><input type="submit" value="<spring:message code="button.search" />" onclick="fnSearch(); return false;" /></span></td>
                         <td><span class="button"><a href="javascript:fnDeleteUser();"><spring:message code="button.delete" /></a></span>&nbsp;</td>
-                        <td><span class="button"><a href="<c:url value='/uss/umt/EgovUserManage.do'/>"><spring:message code="button.list" /></a></span>&nbsp;</td>
-                        <td><span class="button"><a href="<c:url value='/uss/umt/EgovUserInsertView.do'/>" onclick="fnAddUserView(); return false;"><spring:message code="button.create" /></a></span>&nbsp;</td>
+                        <td><span class="button"><a href="<c:url value='/uss/umt/UserManage.do'/>"><spring:message code="button.list" /></a></span>&nbsp;</td>
+                        <td><span class="button"><a href="<c:url value='/uss/umt/UserInsertView.do'/>" onclick="fnAddUserView(); return false;"><spring:message code="button.create" /></a></span>&nbsp;</td>
                       </tr>
                     </table>
                 </td>
@@ -197,7 +197,7 @@ function fnViewCheck(){
                         <input name="checkId" type="hidden" value="<c:out value='${result.userTy}'/>:<c:out value='${result.uniqId}'/>"/>
                     </td>
                     <td class="lt_text3" style="cursor:pointer;cursor:hand" >
-						<span class="link"><a href="<c:url value='/uss/umt/EgovUserSelectUpdtView.do'/>?selectedId=<c:out value="${result.uniqId}"/>"  onclick="javascript:fnSelectUser('<c:out value="${result.userTy}"/>:<c:out value="${result.uniqId}"/>'); return false;"><c:out value="${result.userId}"/></a></span>
+						<span class="link"><a href="<c:url value='/uss/umt/UserSelectUpdtView.do'/>?selectedId=<c:out value="${result.uniqId}"/>"  onclick="javascript:fnSelectUser('<c:out value="${result.userTy}"/>:<c:out value="${result.uniqId}"/>'); return false;"><c:out value="${result.userId}"/></a></span>
                     </td>
                     <td class="lt_text3" ><c:out value="${result.userNm}"/></td>
                     <td class="lt_text3" ><c:out value="${result.emailAdres}"/></td>

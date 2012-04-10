@@ -14,7 +14,7 @@ FROM(
     SELECT
         ESNTL_ID               uniqId,
         'USR03'               userTy,
-        EMPLYR_ID             userId,
+        USER_ID             userId,
         USER_NM             userNm,
         EMAIL_ADRES           emailAdres,
         AREA_NO               areaNo,
@@ -22,9 +22,9 @@ FROM(
         HOUSE_END_TELNO         endTelno,
         MBTLNUM           moblphonNo,
         GROUP_ID              groupId,
-        EMPLYR_STTUS_CODE     sttus,
+        USER_STTUS_CODE     sttus,
         SBSCRB_DE             sbscrbDe
-    FROM    COMTNEMPLYRINFO
+    FROM    BBM_USER_INFO
     ) A
         WHERE 1=1
         <isNotEqual prepend="AND" property="sbscrbSttus" compareValue="0">
@@ -46,7 +46,7 @@ FROM(
             SELECT
                 ESNTL_ID               uniqId,
                 'USR03'               userTy,
-                EMPLYR_ID             userId,
+                USER_ID             userId,
                 USER_NM             userNm,
                 EMAIL_ADRES           emailAdres,
                 AREA_NO               areaNo,
@@ -54,9 +54,9 @@ FROM(
                 HOUSE_END_TELNO         endTelno,
                 MBTLNUM           moblphonNo,
                 GROUP_ID              groupId,
-                EMPLYR_STTUS_CODE     sttus,
+                USER_STTUS_CODE     sttus,
                 SBSCRB_DE             sbscrbDe
-            FROM    COMTNEMPLYRINFO
+            FROM    BBM_USER_INFO
             ) A
         WHERE 1=1
             <isNotEqual prepend="AND" property="sbscrbSttus" compareValue="0">
@@ -72,34 +72,28 @@ FROM(
     
     <insert id="userManageDAO.insertUser_S">
         <![CDATA[
-            INSERT INTO COMTNEMPLYRINFO 
+            INSERT INTO BBM_USER_INFO 
                 (   ESNTL_ID             ,
-                    EMPLYR_ID           ,
+                    USER_ID           ,
                     USER_NM           ,
                     PASSWORD            ,
                     PASSWORD_HINT       ,
                     PASSWORD_CNSR       ,
-                    EMPL_NO             ,
                     IHIDNUM             ,
                     SEXDSTN_CODE        ,
                     BRTHDY                ,
                     AREA_NO             ,
                     HOUSE_MIDDLE_TELNO    ,
                     HOUSE_END_TELNO       ,
-                    FXNUM               ,
                     HOUSE_ADRES           ,
                     DETAIL_ADRES        ,
                     ZIP                 ,
                     OFFM_TELNO          ,
                     MBTLNUM         ,
                     EMAIL_ADRES         ,
-                    OFCPS_NM            ,
                     GROUP_ID            ,
-                    ORGNZT_ID           ,
-                    PSTINST_CODE          ,
-                    EMPLYR_STTUS_CODE   ,
-                    SBSCRB_DE           ,
-                    CRTFC_DN_VALUE              )
+                    USER_STTUS_CODE   ,
+                    SBSCRB_DE                        )
             VALUES (
                     #uniqId#            ,
                     #emplyrId#          ,
@@ -107,14 +101,12 @@ FROM(
                     #password#          ,
                     #passwordHint#      ,
                     #passwordCnsr#      ,                   
-                    #emplNo#            ,
                     #ihidnum#           ,
                     #sexdstnCode#       ,
                     #brth#              ,
                     #areaNo#            ,
                     #homemiddleTelno#   ,
                     #homeendTelno#      ,
-                    #fxnum#             ,
                     #homeadres#         ,
                     #detailAdres#       ,
                     #zip#               ,
@@ -123,17 +115,14 @@ FROM(
                     #emailAdres#        ,
                     #ofcpsNm#           ,
                     #groupId#           ,
-                    #orgnztId#          ,
-                    #insttCode#         ,
                     #emplyrSttusCode#   ,
-                    sysdate()           ,
-                    #subDn#             )
+                    sysdate()             )
         ]]>
     </insert>
     
     <delete id="userManageDAO.deleteUser_S">
         <![CDATA[
-            DELETE FROM COMTNEMPLYRINFO 
+            DELETE FROM BBM_USER_INFO 
             WHERE ESNTL_ID=#delId#
         ]]>
     </delete>
@@ -143,64 +132,52 @@ FROM(
             SELECT
                 ESNTL_ID           uniqId            ,
                 'USR03'           userTy,
-            EMPLYR_ID         emplyrId          ,
+            USER_ID         emplyrId          ,
             USER_NM         emplyrNm          ,
             PASSWORD          password          ,
             PASSWORD_HINT     passwordHint      ,
             PASSWORD_CNSR     passwordCnsr      ,
-            EMPL_NO           emplNo            ,
             IHIDNUM           ihidnum           ,
             SEXDSTN_CODE      sexdstnCode       ,
             BRTHDY              brth              ,
             AREA_NO           areaNo            ,
             HOUSE_MIDDLE_TELNO  homemiddleTelno   ,
             HOUSE_END_TELNO     homeendTelno      ,
-            FXNUM             fxnum             ,
             HOUSE_ADRES         homeadres         ,
             DETAIL_ADRES      detailAdres       ,
             ZIP               zip               ,
             OFFM_TELNO        offmTelno         ,
             MBTLNUM       moblphonNo        ,
             EMAIL_ADRES       emailAdres        ,
-            OFCPS_NM          ofcpsNm           ,
             GROUP_ID          groupId           ,
-            ORGNZT_ID         orgnztId          ,
-            PSTINST_CODE        insttCode         ,
-            EMPLYR_STTUS_CODE emplyrSttusCode   , 
-            SBSCRB_DE         sbscrbDe          ,
-            CRTFC_DN_VALUE            subDn
-        FROM COMTNEMPLYRINFO
+            USER_STTUS_CODE emplyrSttusCode   , 
+            SBSCRB_DE         sbscrbDe          
+        FROM BBM_USER_INFO
             WHERE ESNTL_ID=#uniqId#
         ]]>
     </select>
     
     <update id="userManageDAO.updateUser_S">
         <![CDATA[
-            UPDATE COMTNEMPLYRINFO 
-            SET EMPLYR_ID           = #emplyrId#        , 
+            UPDATE BBM_USER_INFO 
+            SET USER_ID           = #emplyrId#        , 
                 USER_NM           = #emplyrNm#        ,
                 PASSWORD_HINT       = #passwordHint#    ,
                 PASSWORD_CNSR       = #passwordCnsr#    ,
-                EMPL_NO             = #emplNo#          ,
                 IHIDNUM             = #ihidnum#         ,
                 SEXDSTN_CODE        = #sexdstnCode#     ,
                 BRTHDY                = #brth#            ,
                 AREA_NO             = #areaNo#          ,
                 HOUSE_MIDDLE_TELNO    = #homemiddleTelno# ,
                 HOUSE_END_TELNO       = #homeendTelno#    ,
-                FXNUM               = #fxnum#           ,
                 HOUSE_ADRES           = #homeadres#       ,
                 DETAIL_ADRES        = #detailAdres#     ,
                 ZIP                 = #zip#             ,
                 OFFM_TELNO          = #offmTelno#       ,
                 MBTLNUM         = #moblphonNo#      ,
                 EMAIL_ADRES         = #emailAdres#      ,
-                OFCPS_NM            = #ofcpsNm#         ,
                 GROUP_ID            = #groupId#         ,
-                ORGNZT_ID           = #orgnztId#        ,
-                PSTINST_CODE          = #insttCode#       ,
-                EMPLYR_STTUS_CODE   = #emplyrSttusCode# ,
-                CRTFC_DN_VALUE              = #subDn#
+                USER_STTUS_CODE   = #emplyrSttusCode# 
             WHERE ESNTL_ID = #uniqId#
         ]]>
     </update>
@@ -208,14 +185,13 @@ FROM(
     <insert id="userManageDAO.insertUserHistory_S">
         <![CDATA[
             INSERT INTO COMTHEMPLYRINFOCHANGEDTLS 
-                (   EMPLYR_ID           ,
+                (   USER_ID           ,
                     EMPL_NO             ,
                     SEXDSTN_CODE        ,
                     BRTHDY                ,
                     AREA_NO             ,
                     HOUSE_MIDDLE_TELNO    ,
                     HOUSE_END_TELNO       ,
-                    FXNUM               ,
                     HOUSE_ADRES           ,
                     DETAIL_ADRES        ,
                     ZIP                 ,
@@ -223,20 +199,17 @@ FROM(
                     MBTLNUM         ,
                     EMAIL_ADRES         ,
                     GROUP_ID            ,
-                    ORGNZT_ID           ,
-                    PSTINST_CODE          ,
-                    EMPLYR_STTUS_CODE   ,
+                    USER_STTUS_CODE   ,
                     ESNTL_ID             ,
                     CHANGE_DE           )
             SELECT 
-                    EMPLYR_ID           ,
+                    USER_ID           ,
                     EMPL_NO             ,
                     SEXDSTN_CODE        ,
                     BRTHDY                ,
                     AREA_NO             ,
                     HOUSE_MIDDLE_TELNO    ,
                     HOUSE_END_TELNO       ,
-                    FXNUM               ,
                     HOUSE_ADRES           ,
                     DETAIL_ADRES        ,
                     ZIP                 ,
@@ -244,12 +217,10 @@ FROM(
                     MBTLNUM         ,
                     EMAIL_ADRES         ,
                     GROUP_ID            ,
-                    ORGNZT_ID           ,
-                    PSTINST_CODE          ,
-                    EMPLYR_STTUS_CODE   ,
+                    USER_STTUS_CODE   ,
                     ESNTL_ID             ,
                     now()
-            FROM COMTNEMPLYRINFO
+            FROM BBM_USER_INFO
             WHERE ESNTL_ID = #uniqId#
         ]]>
     </insert>
@@ -259,8 +230,8 @@ FROM(
             SELECT COUNT(1) usedCnt
                 FROM(
                 SELECT
-                    EMPLYR_ID             userId
-                FROM    COMTNEMPLYRINFO
+                    USER_ID             userId
+                FROM    BBM_USER_INFO
                 UNION ALL
                 SELECT
                     ENTRPRS_MBER_ID        userId
@@ -276,7 +247,7 @@ FROM(
     
     <update id="userManageDAO.updatePassword_S">
         <![CDATA[
-            UPDATE COMTNEMPLYRINFO 
+            UPDATE BBM_USER_INFO 
             SET 
                    PASSWORD   =  #password#
             WHERE  ESNTL_ID  = #uniqId#
@@ -287,7 +258,7 @@ FROM(
         <![CDATA[
             SELECT
                     PASSWORD          password 
-            FROM    COMTNEMPLYRINFO
+            FROM    BBM_USER_INFO
             WHERE   ESNTL_ID=#uniqId#
         ]]>
     </select>
