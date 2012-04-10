@@ -35,18 +35,18 @@
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
 function fnListPage(){
-    document.userManageVO.action = "<c:url value='/uss/umt/EgovUserManage.do'/>";
+    document.userManageVO.action = "<c:url value='/uss/umt/UserManage.do'/>";
     document.userManageVO.submit();
 }
 function fnDeleteUser(checkedIds) {
 	if(confirm("<spring:message code="common.delete.msg" />")){
 	    document.userManageVO.checkedIdForDel.value=checkedIds;
-	    document.userManageVO.action = "<c:url value='/uss/umt/EgovUserDelete.do'/>";
+	    document.userManageVO.action = "<c:url value='/uss/umt/UserDelete.do'/>";
 	    document.userManageVO.submit();
 	}
 }
 function fnPasswordMove(){
-	document.userManageVO.action = "<c:url value='/uss/umt/EgovUserPasswordUpdtView.do'/>";
+	document.userManageVO.action = "<c:url value='/uss/umt/UserPasswordUpdtView.do'/>";
     document.userManageVO.submit();
 }
 function fnUpdate(){
@@ -88,7 +88,7 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
 </head>
 <body>
         <!-- content start -->
-        <form:form commandName="userManageVO" action="${pageContext.request.contextPath}/uss/umt/EgovUserSelectUpdt.do" name="userManageVO" method="post" >
+        <form:form commandName="userManageVO" action="${pageContext.request.contextPath}/uss/umt/UserSelectUpdt.do" name="userManageVO" method="post" >
 
         <!-- 상세정보 사용자 삭제시 prameter 전달용 input -->
         <input name="checkedIdForDel" type="hidden" />
@@ -318,11 +318,11 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
 		                <!-- 수정 -->
 		                <td><span class="button"><input type="submit" value="<spring:message code="button.update" />" onclick="fnUpdate(); return false;" /></span>&nbsp;</td>
 		                <!-- 삭제 -->
-		                <td><span class="button"><a href="<c:url value='/uss/umt/EgovUserDelete.do'/>" onclick="fnDeleteUser('<c:out value='${userManageVO.userTy}'/>:<c:out value='${userManageVO.uniqId}'/>'); return false;"><spring:message code="button.delete" /></a></span>&nbsp;</td>
+		                <td><span class="button"><a href="<c:url value='/uss/umt/UserDelete.do'/>" onclick="fnDeleteUser('<c:out value='${userManageVO.userTy}'/>:<c:out value='${userManageVO.uniqId}'/>'); return false;"><spring:message code="button.delete" /></a></span>&nbsp;</td>
 		                <!-- 목록 -->
-		                <td><span class="button"><a href="<c:url value='/uss/umt/EgovUserManage.do'/>" onclick="fnListPage(); return false;"><spring:message code="button.list" /></a></span>&nbsp;</td>
+		                <td><span class="button"><a href="<c:url value='/uss/umt/UserManage.do'/>" onclick="fnListPage(); return false;"><spring:message code="button.list" /></a></span>&nbsp;</td>
                         <!-- 암호변경 -->
-		                <td><span class="button"><a href="<c:url value='/uss/umt/EgovUserPasswordUpdtView.do'/>" onclick="fnPasswordMove(); return false;"><spring:message code="button.passwordUpdate" /></a></span>&nbsp;</td>
+		                <td><span class="button"><a href="<c:url value='/uss/umt/UserPasswordUpdtView.do'/>" onclick="fnPasswordMove(); return false;"><spring:message code="button.passwordUpdate" /></a></span>&nbsp;</td>
                         <!-- 취소 -->
 		                <td><span class="button"><a href="#LINK" onclick="javascript:document.userManageVO.reset();"><spring:message code="button.reset" /></a></span></td>
 		            </tr>

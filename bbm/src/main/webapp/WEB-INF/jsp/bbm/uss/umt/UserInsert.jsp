@@ -46,7 +46,7 @@ function fnIdCheck(){
     }
 }
 function fnListPage(){
-    document.userManageVO.action = "<c:url value='/uss/umt/EgovUserManage.do'/>";
+    document.userManageVO.action = "<c:url value='/uss/umt/UserManage.do'/>";
     document.userManageVO.submit();
 }
 function fnInsert(){
@@ -94,7 +94,7 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
 </head>
 <body>
 <!-- content start -->
-        <form:form commandName="userManageVO" action="${pageContext.request.contextPath}/uss/umt/EgovUserInsert.do" name="userManageVO" method="post" >
+        <form:form commandName="userManageVO" action="${pageContext.request.contextPath}/uss/umt/UserInsert.do" name="userManageVO" method="post" >
             <!-- 우편번호검색 -->
             <input type="hidden" name="zip_url" value="<c:url value='/sym/ccm/zip/EgovCcmZipSearchPopup.do'/>" />
         <table width="717" cellpadding="8" class="table-search" border="0">
@@ -326,7 +326,7 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <table border="0" cellspacing="0" cellpadding="0" align="center">
                         <tr>
                             <td><span class="button"><input type="submit" value="<spring:message code="button.create" />" onclick="fnInsert(); return false;" /></span>&nbsp;</td>
-                            <td><span class="button"><a href="<c:url value='/uss/umt/EgovUserManage.do'/>" onclick="fnListPage(); return false;"><spring:message code="button.list" /></a></span>&nbsp;</td>
+                            <td><span class="button"><a href="<c:url value='/uss/umt/UserManage.do'/>" onclick="fnListPage(); return false;"><spring:message code="button.list" /></a></span>&nbsp;</td>
                             <td><span class="button"><a href="#LINK" onclick="javascript:document.userManageVO.reset();"><spring:message code="button.reset" /></a></span></td>
                         </tr>
                     </table>

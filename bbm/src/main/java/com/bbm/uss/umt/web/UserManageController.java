@@ -136,12 +136,7 @@ public class UserManageController {
         //사용자상태코드를 코드정보로부터 조회
         vo.setCodeId("COM013");
         List emplyrSttusCode_result = cmmUseService.selectCmmCodeDetail(vo);        
-        //소속기관코드를 코드정보로부터 조회 - COM025
-        vo.setCodeId("COM025");
-        List insttCode_result = cmmUseService.selectCmmCodeDetail(vo);
-        //조직정보를 조회 - ORGNZT_ID정보
-        vo.setTableNm("COMTNORGNZTINFO");
-        List orgnztId_result = cmmUseService.selectOgrnztIdDetail(vo);
+       
         //그룹정보를 조회 - GROUP_ID정보
         vo.setTableNm("COMTNORGNZTINFO");
         List groupId_result = cmmUseService.selectGroupIdDetail(vo);
@@ -149,8 +144,6 @@ public class UserManageController {
         model.addAttribute("passwordHint_result",      passwordHint_result);     //패스워트힌트목록
         model.addAttribute("sexdstnCode_result",       sexdstnCode_result);      //성별구분코드목록
         model.addAttribute("emplyrSttusCode_result",emplyrSttusCode_result);//사용자상태코드목록
-        model.addAttribute("insttCode_result",         insttCode_result);        //소속기관코드목록
-        model.addAttribute("orgnztId_result",         orgnztId_result);        //조직정보 목록
         model.addAttribute("groupId_result",         groupId_result);        //그룹정보 목록
         
         return "bbm/uss/umt/UserInsert";
