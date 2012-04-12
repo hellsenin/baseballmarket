@@ -81,7 +81,7 @@
 		<![CDATA[
 		select AUTHOR_CODE AS authorCode from COMTNEMPLYRSCRTYESTBS
 		where SCRTY_DTRMN_TRGET_ID =
-			(select ESNTL_ID from COMVNUSERMASTER
+			(select ESNTL_ID from V_BBS_USER_MASTER
 			where user_id = #searchKeyword# )
 		]]>
 	</select>
@@ -90,7 +90,7 @@
 		<![CDATA[
 		select count(AUTHOR_CODE) from COMTNEMPLYRSCRTYESTBS
 		where SCRTY_DTRMN_TRGET_ID =
-			(select ESNTL_ID from COMVNUSERMASTER
+			(select ESNTL_ID from V_BBS_USER_MASTER
 			where user_id = #searchKeyword# )
 		]]>
 	</select>
