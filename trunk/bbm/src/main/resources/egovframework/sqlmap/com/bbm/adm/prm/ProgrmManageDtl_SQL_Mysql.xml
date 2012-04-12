@@ -194,7 +194,7 @@
 
 	<select id="progrmManageDAO.selectRqesterEmail" parameterClass="progrmManageDtlVO" resultClass="progrmManageDtlVO">
 		<![CDATA[
-			select user_email AS tmpEmail from COMVNUSERMASTER
+			select user_email AS tmpEmail from V_BBS_USER_MASTER
 			where user_id = #rqesterPersonId#
 		 ]]>
 	</select>
