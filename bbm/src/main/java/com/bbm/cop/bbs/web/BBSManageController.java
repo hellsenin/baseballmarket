@@ -143,7 +143,9 @@ public class BBSManageController {
      */
     @RequestMapping("/cop/bbs/selectBoardList.do")
     public String selectBoardArticles(@ModelAttribute("searchVO") BoardVO boardVO, ModelMap model) throws Exception {
-	LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+	
+    	
+    //LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
 
 	//log.debug(this.getClass().getName() + " user.getId() "+ user.getId());
 	//log.debug(this.getClass().getName() + " user.getName() "+ user.getName());
@@ -160,7 +162,7 @@ public class BBSManageController {
 	BoardMasterVO vo = new BoardMasterVO();
 	
 	vo.setBbsId(boardVO.getBbsId());
-	vo.setUniqId(user.getUniqId());
+	//vo.setUniqId(user.getUniqId());
 	
 	BoardMasterVO master = bbsAttrbService.selectBBSMasterInf(vo);
 	

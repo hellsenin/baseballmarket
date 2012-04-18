@@ -305,6 +305,13 @@
 						<li><span class="file"><a href="" ></a></span></li>
 					</ul>
 				</li>
+				<li><span class="folder">게시판관리</span>
+					<ul>
+						<li><span class="file"><a href="/cop/bbs/selectBoardMasterList.do" >게시판생성관리</a></span></li>
+						<li><span class="file"><a href="/cop/bbs/selectBoardList.do" >게시판관리</a></span></li>
+						<li><span class="file"><a href="" ></a></span></li>
+					</ul>
+				</li>
 				
 				
 			</ul>
