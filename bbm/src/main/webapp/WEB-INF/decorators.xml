@@ -6,6 +6,11 @@
 	<decorator name="main" page="mesh_main.jsp">
 		<pattern>*.do</pattern>
 	</decorator>
+	
+	<decorator name="popup" page="popup.jsp">
+		<pattern>*/popup/*</pattern>
+	</decorator>
+	
 	<decorator name="layout" page="layout.jsp">
 		<pattern>/layout.do</pattern>
 	</decorator>

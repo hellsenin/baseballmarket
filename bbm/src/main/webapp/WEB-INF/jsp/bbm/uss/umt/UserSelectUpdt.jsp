@@ -31,7 +31,7 @@
 <title>User Detail, Update, Delete</title>
 <script type="text/javascript" src="<c:url value="/validator.do"/>"></script>
 <validator:javascript formName="userManageVO" staticJavascript="false" xhtml="true" cdata="false"/>
-<script type="text/javascript" src="<c:url value='/js/egovframework/com/sym/ccm/zip/EgovZipPopup.js' />" ></script>
+<script type="text/javascript" src="<c:url value='/js/common/zip/ZipPopup.js' />" ></script>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
 function fnListPage(){
@@ -98,7 +98,7 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
         <input type="hidden" name="sbscrbSttus" value="<c:out value='${userSearchVO.sbscrbSttus}'/>"/>
         <input type="hidden" name="pageIndex" value="<c:out value='${userSearchVO.pageIndex}'/>"/>
         <!-- 우편번호검색 -->
-        <input type="hidden" name="zip_url" value="<c:url value='/sym/ccm/zip/EgovCcmZipSearchPopup.do'/>" />
+        <input type="hidden" name="zip_url" value="<c:url value='/cmm/zip/popup/ZipSearchPopup.do'/>" />
         <!-- 사용자유형정보 : password 수정화면으로 이동시 타겟 유형정보 확인용, 만약검색조건으로 유형이 포함될경우 혼란을 피하기위해 userTy명칭을 쓰지 않음-->
         <input type="hidden" name="userTyForPassword" value="<c:out value='${userManageVO.userTy}'/>" />
 

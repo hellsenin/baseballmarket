@@ -31,12 +31,12 @@
 <title>User Insert</title>
 <script type="text/javascript" src="<c:url value="/validator.do"/>"></script>
 <validator:javascript formName="userManageVO" staticJavascript="false" xhtml="true" cdata="false"/>
-<script type="text/javascript" src="<c:url value='/js/egovframework/com/sym/ccm/zip/EgovZipPopup.js' />" ></script>
+<script type="text/javascript" src="<c:url value='/js/common/zip/ZipPopup.js' />" ></script>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
 function fnIdCheck(){
     var retVal;
-    var url = "<c:url value='/uss/umt/EgovIdDplctCnfirmView.do'/>";
+    var url = "<c:url value='/uss/umt/popup/IdDplctCnfirmView.do'/>";
     var varParam = new Object();
     varParam.checkId = document.userManageVO.emplyrId.value;
     var openParam = "dialogWidth:303px;dialogHeight:250px;scroll:no;status:no;center:yes;resizable:yes;";
@@ -96,7 +96,7 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
 <!-- content start -->
         <form:form commandName="userManageVO" action="${pageContext.request.contextPath}/uss/umt/UserInsert.do" name="userManageVO" method="post" >
             <!-- 우편번호검색 -->
-            <input type="hidden" name="zip_url" value="<c:url value='/sym/ccm/zip/EgovCcmZipSearchPopup.do'/>" />
+            <input type="hidden" name="zip_url" value="<c:url value='/cmm/zip/popup/ZipSearchPopup.do'/>" />
         <table width="717" cellpadding="8" class="table-search" border="0">
             <tr>
               <td width="100%" class="title_left"><img src="<c:url value='/images/egovframework/com/cmm/icon/tit_icon.gif' />" width="16" height="16" hspace="3" alt="" />&nbsp;업무사용자 등록</td>
@@ -161,40 +161,7 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <div><form:errors path="passwordCnsr" cssClass="error"/></div>
                 </td>
             </tr>
-            <tr>
-                <th width="20%" height="23" class="required_text"  >소속기관코드&nbsp;&nbsp;</th>
-                <td width="80%" >
-                    <form:select path="insttCode" id="insttCode" title="소속기관코드">
-                        <form:option value="" label="--선택하세요--"/>
-                        <form:options items="${insttCode_result}" itemValue="code" itemLabel="codeNm"/>
-                    </form:select>
-                    <div><form:errors path="insttCode" cssClass="error"/></div>
-                </td>
-            </tr>
-            <tr>
-                <th width="20%" height="23" class="required_text"  >조직아이디&nbsp;&nbsp;</th>
-                <td width="80%" >
-                    <form:select path="orgnztId" id="orgnztId" title="조직아이디">
-                        <form:option value="" label="--선택하세요--"/>
-                        <form:options items="${orgnztId_result}" itemValue="code" itemLabel="codeNm"/>
-                    </form:select>
-                    <div><form:errors path="orgnztId" cssClass="error"/></div>
-                </td>
-            </tr>
-            <tr>
-                <th width="20%" height="23" class="required_text"  >직위명&nbsp;&nbsp;</th>
-                <td width="80%" >
-                    <form:input path="ofcpsNm" id="ofcpsNm" title="직위명" cssClass="txaIpUmt" size="20" maxlength="50" />
-                    <div><form:errors path="ofcpsNm" cssClass="error" /></div>
-                </td>
-            </tr>
-            <tr>
-                <th width="20%" height="23" class="required_text"  >사번&nbsp;&nbsp;</th>
-                <td width="80%" >
-                    <form:input path="emplNo" id="emplNo" title="사번" cssClass="txaIpUmt" size="20" maxlength="20" />
-                    <div><form:errors path="emplNo" cssClass="error" /></div>
-                </td>
-            </tr>
+            
             <tr>
                 <th width="20%" height="23" class="required_text"  >성별구분코드&nbsp;&nbsp;</th>
                 <td width="80%" >
@@ -222,20 +189,6 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <div><form:errors path="areaNo" cssClass="error" /></div>
                     <div><form:errors path="homemiddleTelno" cssClass="error" /></div>
                     <div><form:errors path="homeendTelno" cssClass="error" /></div>
-                </td>
-            </tr>
-            <tr>
-                <th width="20%" height="23" class="required_text"  >사무실전화번호&nbsp;&nbsp;</th>
-                <td width="80%" >
-                    <form:input path="offmTelno" id="offmTelno" title="사무실전화번호" cssClass="txaIpUmt" size="20" maxlength="15" />
-                    <div><form:errors path="offmTelno" cssClass="error" /></div>
-                </td>
-            </tr>
-            <tr>
-                <th width="20%" height="23" class="required_text"  >팩스번호&nbsp;&nbsp;</th>
-                <td width="80%" >
-                    <form:input path="fxnum" id="fxnum" cssClass="txaIpUmt" title="팩스번호" size="20" maxlength="15" />
-                    <div><form:errors path="fxnum" cssClass="error" /></div>
                 </td>
             </tr>
             <tr>
@@ -307,15 +260,7 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <div><form:errors path="emplyrSttusCode" cssClass="error"/></div>
                 </td>
             </tr>
-            <tr>
-                <th width="20%" height="23" class="required_text"  >사용자DN&nbsp;&nbsp;</th>
-                <td width="80%" >
-                    <form:input path="subDn" id="subDn" cssClass="txaIpUmt" title="사용자DN" size="40" maxlength="100" />
-                    &nbsp;<a href="#LINK" onclick="fn_egov_inqire_cert()" style="selector-dummy: expression(this.hideFocus=false);"><img src="<c:url value='/images/egovframework/com/cmm/icon/search.gif' />"
-	     			width="15" height="15" alt="search"/></a>
-                    <div><form:errors path="subDn" cssClass="error" /></div>
-                </td>
-            </tr>
+            
         </table>
         <table width="717" border="0" cellspacing="0" cellpadding="0">
             <tr>

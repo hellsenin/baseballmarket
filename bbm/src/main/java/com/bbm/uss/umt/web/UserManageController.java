@@ -281,25 +281,25 @@ public class UserManageController {
     /**
      * 입력한 사용자아이디의 중복확인화면 이동
      * @param model 화면모델
-     * @return uss/umt/EgovIdDplctCnfirm
+     * @return uss/umt/IdDplctCnfirm
      * @throws Exception
      */
-    @RequestMapping(value="/uss/umt/EgovIdDplctCnfirmView.do")
+    @RequestMapping(value="/uss/umt/popup/IdDplctCnfirmView.do")
     public String checkIdDplct(ModelMap model)
             throws Exception {
         model.addAttribute("checkId", "");
         model.addAttribute("usedCnt", "-1");
-        return "bbm/uss/umt/EgovIdDplctCnfirm";
+        return "bbm/uss/umt/IdDplctCnfirm";
     }
     
     /**
      * 입력한 사용자아이디의 중복여부를 체크하여 사용가능여부를 확인
      * @param commandMap 파라메터전달용 commandMap
      * @param model 화면모델
-     * @return uss/umt/EgovIdDplctCnfirm
+     * @return uss/umt/IdDplctCnfirm
      * @throws Exception
      */
-    @RequestMapping(value="/uss/umt/EgovIdDplctCnfirm.do")
+    @RequestMapping(value="/uss/umt/popup/IdDplctCnfirm.do")
     public String checkIdDplct(
     		Map<String, Object> commandMap,
             ModelMap model
@@ -308,13 +308,13 @@ public class UserManageController {
     	String checkId = (String)commandMap.get("checkId");
     	checkId =  new String(checkId.getBytes("ISO-8859-1"), "UTF-8");
         
-    	if (checkId==null || checkId.equals("")) return "forward:/uss/umt/EgovIdDplctCnfirmView.do";
+    	if (checkId==null || checkId.equals("")) return "forward:/uss/umt/popup/IdDplctCnfirmView.do";
         
         int usedCnt = userManageService.checkIdDplct(checkId);
         model.addAttribute("usedCnt", usedCnt);
         model.addAttribute("checkId", checkId);
         
-        return "bbm/uss/umt/EgovIdDplctCnfirm";
+        return "bbm/uss/umt/IdDplctCnfirm";
     }
     
     /**

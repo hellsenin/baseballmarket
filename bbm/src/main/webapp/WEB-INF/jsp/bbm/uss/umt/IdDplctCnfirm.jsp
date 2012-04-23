@@ -5,7 +5,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%
  /**
-  * @Class Name : EgovIdDplctCnfirm.jsp
+  * @Class Name : IdDplctCnfirm.jsp
   * @Description : 아이디중복확인
   * @Modification Information
   * @
@@ -110,7 +110,7 @@ function fnCheck(str){
 </script>
 </head>
 <body>
-    <form name="checkForm" action ="<c:url value='/uss/umt/EgovIdDplctCnfirm.do'/>">
+    <form name="checkForm" action ="<c:url value='/uss/umt/popup/IdDplctCnfirm.do'/>">
 
     <table border="0" cellspacing="0" cellpadding="0" width="300">
         <tr><td height="20" colspan="2"></td></tr>

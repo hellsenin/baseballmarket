@@ -162,13 +162,13 @@
 				a.BBS_ID = #bbsId#
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.NTT_SJ LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.NTT_SJ LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCnd" compareValue="1">
-				<![CDATA[	a.NTT_CN LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.NTT_CN LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>	
 			<isEqual prepend="AND" property="searchCnd" compareValue="2">
-				<![CDATA[	b.USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	b.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>				
 		<![CDATA[			
 			ORDER BY a.SORT_ORDR DESC, NTT_NO ASC
@@ -189,13 +189,13 @@
 				a.BBS_ID = #bbsId#
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.NTT_SJ LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.NTT_SJ LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCnd" compareValue="1">
-				<![CDATA[	a.NTT_CN LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.NTT_CN LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>	
 			<isEqual prepend="AND" property="searchCnd" compareValue="2">
-				<![CDATA[	b.USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	b.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>			
 	</select>	
  

@@ -31,12 +31,12 @@
 <title>Mber Sbscrb</title>
 <script type="text/javascript" src="<c:url value="/sec/rnc/validator.do"/>"></script>
 <validator:javascript formName="mberManageVO" staticJavascript="false" xhtml="true" cdata="false"/>
-<script type="text/javascript" src="<c:url value='/js/egovframework/com/sym/ccm/zip/EgovZipPopup.js' />" ></script>
+<script type="text/javascript" src="<c:url value='/js/common/zip/ZipPopup.js' />" ></script>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
 function fnIdCheck(){
     var retVal;
-    var url = "<c:url value='/uss/umt/EgovIdDplctCnfirmView.do'/>";
+    var url = "<c:url value='/uss/umt/popup/IdDplctCnfirmView.do'/>";
     var varParam = new Object();
     varParam.checkId = document.mberManageVO.mberId.value;
     var openParam = "dialogWidth:303px;dialogHeight:250px;scroll:no;status:no;center:yes;resizable:yes;";
@@ -69,7 +69,7 @@ function fnSbscrb(){
         <input type="hidden" name="sbscrbSttus" value="<c:out value='${userSearchVO.sbscrbSttus}'/>"/>
         <input type="hidden" name="pageIndex" value="<c:out value='${userSearchVO.pageIndex}'/>"/>
         <!-- 우편번호검색 -->
-        <input type="hidden" name="zip_url" value="<c:url value='/sym/ccm/zip/EgovCcmZipSearchPopup.do'/>" />
+        <input type="hidden" name="zip_url" value="<c:url value='/cmm/zip/popup/ZipSearchPopup.do'/>" />
 
         <table width="717" cellpadding="8" class="table-search" border="0">
             <tr>

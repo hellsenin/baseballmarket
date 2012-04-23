@@ -88,7 +88,7 @@
 			AND a.REGIST_SE_CODE != 'REGC07'
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	e.BBS_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	e.BBS_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 		<![CDATA[
 			ORDER BY a.FRST_REGIST_PNTTM DESC
@@ -111,7 +111,7 @@
 			AND a.REGIST_SE_CODE != 'REGC07'
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	e.BBS_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	e.BBS_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 	</select>
 
@@ -226,7 +226,7 @@
 		) tt
 		]]>
 			<isEqual prepend="WHERE" property="searchCnd" compareValue="0">
-				<![CDATA[ 	tt.USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[ 	tt.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 		<![CDATA[
 			ORDER BY tt.USER_NM DESC
@@ -292,7 +292,7 @@
 		) tt
 		]]>
 			<isEqual prepend="WHERE" property="searchCnd" compareValue="0">
-				<![CDATA[ tt.USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[ tt.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 	</select>
 
