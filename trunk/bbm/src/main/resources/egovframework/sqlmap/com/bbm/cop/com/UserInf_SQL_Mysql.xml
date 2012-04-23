@@ -40,7 +40,7 @@
 			WHERE 1=1 
  		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 		<![CDATA[			
 			ORDER BY USER_NM 
@@ -57,7 +57,7 @@
 			WHERE 1=1 
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>		
 	</select>	
  
@@ -74,7 +74,7 @@
 				b.CMMNTY_ID = #trgetId#
  		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 		<![CDATA[			
 			ORDER BY a.USER_NM 
@@ -94,7 +94,7 @@
 				b.CMMNTY_ID = #trgetId#
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>		
 	</select>
  
@@ -114,7 +114,7 @@
 				b.CMMNTY_ID = #trgetId#				
  		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 		<![CDATA[			
 			ORDER BY a.USER_NM 
@@ -136,7 +136,7 @@
 				b.CMMNTY_ID = #trgetId#				
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>		
 	</select>
 	
@@ -154,7 +154,7 @@
 				b.CLB_ID = #trgetId#				
  		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 		<![CDATA[			
 			ORDER BY a.USER_NM 
@@ -174,7 +174,7 @@
 				b.CLB_ID = #trgetId#						
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>		
 	</select>
 
@@ -193,7 +193,7 @@
 				b.CLB_ID = #trgetId#						
  		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 		<![CDATA[			
 			ORDER BY a.USER_NM 
@@ -215,7 +215,7 @@
 				b.CLB_ID = #trgetId#						
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.USER_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>		
 	</select>
 

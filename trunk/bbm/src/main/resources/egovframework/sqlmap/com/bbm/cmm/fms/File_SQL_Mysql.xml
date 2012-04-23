@@ -120,10 +120,10 @@
 				a.USE_AT = 'Y'
  		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="streFileNm">
-				<![CDATA[	b.STRE_FILE_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	b.STRE_FILE_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCnd" compareValue="orignlFileNm">
-				<![CDATA[	b.ORIGNL_FILE_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	b.ORIGNL_FILE_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>	
 		<![CDATA[			
 			ORDER BY a.ATCH_FILE_ID, b.FILE_SN	
@@ -143,10 +143,10 @@
 				a.USE_AT = 'Y'				
  		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="streFileNm">
-				<![CDATA[	b.STRE_FILE_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	b.STRE_FILE_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCnd" compareValue="orignlFileNm">
-				<![CDATA[	b.ORIGNL_FILE_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	b.ORIGNL_FILE_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>	 		
  	</select>
  	

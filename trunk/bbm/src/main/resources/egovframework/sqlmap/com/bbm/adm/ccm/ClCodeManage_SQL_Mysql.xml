@@ -20,10 +20,10 @@
 			 WHERE  1 = 1
 		]]>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				<![CDATA[CL_CODE LIKE CONCAT ('%', #searchKeyword#,'%')]]>
+				<![CDATA[CL_CODE LIKE CONCAT('%', #searchKeyword#,'%')]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="2">
-				<![CDATA[CL_CODE_NM LIKE CONCAT ('%', #searchKeyword#,'%')]]>
+				<![CDATA[CL_CODE_NM LIKE CONCAT('%', #searchKeyword#,'%')]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="CodeList">
 				<![CDATA[USE_AT        = 'Y']]>
@@ -38,10 +38,10 @@
 			 WHERE  1 = 1
 		]]>
 			<isEqual prepend="AND" property="searchCondition" compareValue="1">
-				<![CDATA[CL_CODE LIKE CONCAT ('%', #searchKeyword#,'%')]]>
+				<![CDATA[CL_CODE LIKE CONCAT('%', #searchKeyword#,'%')]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCondition" compareValue="3">
-				<![CDATA[CL_CODE_NM LIKE CONCAT ('%', #searchKeyword#,'%')]]>
+				<![CDATA[CL_CODE_NM LIKE CONCAT('%', #searchKeyword#,'%')]]>
 			</isEqual>
 	</select>
 

@@ -86,10 +86,10 @@
 				AND a.USE_AT = #useAt#
 			</isNotEmpty>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.BBS_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.BBS_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCnd" compareValue="1">
-				<![CDATA[	b.CODE_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	b.CODE_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>	
 		<![CDATA[			
 			ORDER BY a.FRST_REGIST_PNTTM DESC 
@@ -117,10 +117,10 @@
 				AND a.USE_AT = #useAt#
 			</isNotEmpty>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.BBS_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.BBS_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCnd" compareValue="1">
-				<![CDATA[	b.CODE_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	b.CODE_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>	
 	</select>	
  
@@ -227,10 +227,10 @@
 				d.TRGET_ID = #trgetId#
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.BBS_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.BBS_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCnd" compareValue="1">
-				<![CDATA[	b.CODE_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	b.CODE_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>	
 		<![CDATA[			
 			ORDER BY a.FRST_REGIST_PNTTM DESC 
@@ -259,10 +259,10 @@
 				d.TRGET_ID = #trgetId#
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.BBS_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.BBS_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCnd" compareValue="1">
-				<![CDATA[	b.CODE_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	b.CODE_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>	
 	</select>
 
@@ -287,10 +287,10 @@
 				AND a.BBS_ID NOT IN (SELECT BBS_ID FROM BBM_BBS_USE WHERE USE_AT = 'Y')
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.BBS_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.BBS_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCnd" compareValue="1">
-				<![CDATA[	b.CODE_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	b.CODE_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>	
 		<![CDATA[			
 			ORDER BY a.FRST_REGIST_PNTTM DESC 
@@ -316,10 +316,10 @@
 				AND a.BBS_ID NOT IN (SELECT BBS_ID FROM BBM_BBS_USE WHERE USE_AT = 'Y') 
 		]]>
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	a.BBS_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	a.BBS_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 			<isEqual prepend="AND" property="searchCnd" compareValue="1">
-				<![CDATA[	b.CODE_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	b.CODE_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>	
 	</select>	
 

@@ -84,7 +84,7 @@
 			 	USER_ID = #userId#				 						
 		]]>		
 			<isEqual prepend="AND" property="searchCnd" compareValue="0" >
-				<![CDATA[	MENU_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	MENU_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 			
 		<![CDATA[			
@@ -101,7 +101,7 @@
 			 	USER_ID = #userId#					
 		]]>		
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	MENU_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	MENU_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 		
 	</select>
@@ -119,7 +119,7 @@
 				AND d.menu_no not in (SELECT MENU_ID FROM BBM_BKMK_MENUMANAGE_RESULT WHERE USER_ID = #userId#)			
 		]]>		
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	MENU_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	MENU_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 			
 		<![CDATA[			
@@ -140,7 +140,7 @@
 				AND d.menu_no not in (SELECT MENU_ID FROM BBM_BKMK_MENUMANAGE_RESULT WHERE USER_ID = #userId#)						
 		]]>		
 			<isEqual prepend="AND" property="searchCnd" compareValue="0">
-				<![CDATA[	MENU_NM LIKE CONCAT ('%', #searchWrd#,'%') 		]]>
+				<![CDATA[	MENU_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
 			</isEqual>
 		
 	</select>

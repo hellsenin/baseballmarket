@@ -235,11 +235,7 @@ FROM(
                 UNION ALL
                 SELECT
                     ENTRPRS_MBER_ID        userId
-                FROM    COMTNENTRPRSMBER
-                UNION ALL
-                SELECT
-                    MBER_ID               userId
-                FROM    COMTNGNRLMBER
+                FROM    BBM_ENTRPRS_INFO
                 ) A
             WHERE userId = #checkId#
         ]]>
