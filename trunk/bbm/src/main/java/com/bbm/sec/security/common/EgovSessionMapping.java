@@ -71,10 +71,10 @@ public class EgovSessionMapping extends EgovUsersByUsernameMapping {
         loginVO.setName(strUserNm);
         loginVO.setUserSe(strUserSe);
         loginVO.setEmail(strUserEmail);
-        loginVO.setOrgnztId(strOrgnztId);
+        //loginVO.setOrgnztId(strOrgnztId);
         loginVO.setUniqId(strUniqId);
         /**2010.06.30 *이용   *조직명 추가  */
-        loginVO.setOrgnztNm(strOrgnztNm);
+        //loginVO.setOrgnztNm(strOrgnztNm);
         
         return new EgovUserDetails(strUserId, strPassWord, strEnabled, loginVO);
     }

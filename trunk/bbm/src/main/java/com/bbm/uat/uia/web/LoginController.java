@@ -139,12 +139,16 @@ public class LoginController {
 			throws Exception {
     	
     	// 1. Spring Security 사용자권한 처리
+    	
+    	/*
     	Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
     	if(!isAuthenticated) {
     		model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
         	return "bbm/uat/uia/LoginUsr";
     	}
     	LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+    	*/
+    	
     	
     	/*
     	// 2. 메뉴조회

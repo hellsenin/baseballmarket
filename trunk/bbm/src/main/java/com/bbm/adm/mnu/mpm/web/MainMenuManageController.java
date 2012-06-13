@@ -102,7 +102,7 @@ public class MainMenuManageController {
     	menuManageVO.setTmpUserSe(user.getUserSe());
     	menuManageVO.setTmpName(user.getName());
     	menuManageVO.setTmpEmail(user.getEmail());
-    	menuManageVO.setTmpOrgnztId(user.getOrgnztId());
+    	//menuManageVO.setTmpOrgnztId(user.getOrgnztId());
     	menuManageVO.setTmpUniqId(user.getUniqId());
 
     	List list_headmenu = menuManageService.selectMainMenuHead(menuManageVO);
@@ -141,7 +141,7 @@ public class MainMenuManageController {
     	menuManageVO.setTmpUserSe(user.getUserSe());
     	menuManageVO.setTmpName(user.getName());
     	menuManageVO.setTmpEmail(user.getEmail());
-    	menuManageVO.setTmpOrgnztId(user.getOrgnztId());
+    	//menuManageVO.setTmpOrgnztId(user.getOrgnztId());
     	menuManageVO.setTmpUniqId(user.getUniqId());
 
     	List list_headmenu = menuManageService.selectMainMenuHead(menuManageVO);
@@ -186,7 +186,7 @@ public class MainMenuManageController {
     	menuManageVO.setTmpUserSe(user.getUserSe());
     	menuManageVO.setTmpName(user.getName());
     	menuManageVO.setTmpEmail(user.getEmail());
-    	menuManageVO.setTmpOrgnztId(user.getOrgnztId());
+    	//menuManageVO.setTmpOrgnztId(user.getOrgnztId());
     	menuManageVO.setTmpUniqId(user.getUniqId());
     	
     	List list_menulist = menuManageService.selectMainMenuLeft(menuManageVO);
@@ -238,7 +238,7 @@ public class MainMenuManageController {
     	menuManageVO.setTmpUserSe(user.getUserSe());
     	menuManageVO.setTmpName(user.getName());
     	menuManageVO.setTmpEmail(user.getEmail());
-    	menuManageVO.setTmpOrgnztId(user.getOrgnztId());
+    	//menuManageVO.setTmpOrgnztId(user.getOrgnztId());
     	menuManageVO.setTmpUniqId(user.getUniqId());
     	
 		List list_headmenu = menuManageService.selectMainMenuHead(menuManageVO);
