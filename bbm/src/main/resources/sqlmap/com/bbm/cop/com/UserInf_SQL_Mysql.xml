@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UserInfManageDAO">
+
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="UserInfVO" type="com.bbm.cop.com.service.UserInfVO"/>
+
+	<resultMap id="UserInfs" class="com.bbm.cop.com.service.UserInfVO">
+		<result property="uniqId" column="ESNTL_ID" columnIndex="1"/>
+		<result property="userId" column="USER_ID" columnIndex="2"/>
+		<result property="userNm" column="USER_NM" columnIndex="3"/>
+		<result property="userZip" column="USER_ZIP" columnIndex="4"/>
+		<result property="userAdres" column="USER_ADRES" columnIndex="5"/>
+		<result property="userEmail" column="USER_EMAIL" columnIndex="6"/>
+	</resultMap>
+	
+	<resultMap id="UserInfList" class="com.bbm.cop.com.service.UserInfVO">
+		<result property="uniqId" column="ESNTL_ID" columnIndex="1"/>
+		<result property="userId" column="USER_ID" columnIndex="2"/>
+		<result property="userNm" column="USER_NM" columnIndex="3"/>
+		<result property="userZip" column="USER_ZIP" columnIndex="4"/>
+		<result property="userAdres" column="USER_ADRES" columnIndex="5"/>
+		<result property="userEmail" column="USER_EMAIL" columnIndex="6"/>
+		<result property="useAt" column="USE_AT" columnIndex="7"/>
+		<result property="deletedAt" column="DELETED_AT" columnIndex="8"/>
+	</resultMap>
+	
+	<resultMap id="AllUserInfList" class="com.bbm.cop.com.service.UserInfVO">
+		<result property="uniqId" column="ESNTL_ID" columnIndex="1"/>
+		<result property="trgetId" column="TRGET_ID" columnIndex="2"/>
+	</resultMap>	
+
+ 	<select id="UserInfManageDAO.selectUserList" parameterClass="UserInfVO" resultMap="UserInfs" >
+ 		<![CDATA[
+			SELECT 
+				ESNTL_ID, USER_ID, USER_NM, USER_ZIP, USER_ADRES, USER_EMAIL
+			FROM 
+				V_BBS_USER_MASTER
+			WHERE 1=1 
+ 		]]>
+			<isEqual prepend="AND" property="searchCnd" compareValue="0">
+				<![CDATA[	USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
+			</isEqual>
+		<![CDATA[			
+			ORDER BY USER_NM 
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#
+		]]>					
+ 	</select>
+ 	
+	<select id="UserInfManageDAO.selectUserListCnt" parameterClass="UserInfVO" resultClass="java.lang.Integer" >
+		<![CDATA[
+			SELECT 
+				COUNT(ESNTL_ID)
+			FROM 
+				V_BBS_USER_MASTER
+			WHERE 1=1 
+		]]>
+			<isEqual prepend="AND" property="searchCnd" compareValue="0">
+				<![CDATA[	USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
+			</isEqual>		
+	</select>	
+ 
+	<select id="UserInfManageDAO.selectCmmntyUserList" parameterClass="UserInfVO" resultMap="UserInfList" >
+ 		<![CDATA[
+			SELECT 
+				a.ESNTL_ID, a.USER_ID, a.USER_NM, a.USER_ZIP, a.USER_ADRES, a.USER_EMAIL, b.USE_AT,
+				(SELECT USE_AT from BBM_CMMNTY WHERE CMMNTY_ID = #trgetId#) AS DELETED_AT
+			FROM 
+				V_BBS_USER_MASTER a, BBM_CMMNTY_USER b
+			WHERE 
+				a.ESNTL_ID = b.EMPLYR_ID 
+			AND
+				b.CMMNTY_ID = #trgetId#
+ 		]]>
+			<isEqual prepend="AND" property="searchCnd" compareValue="0">
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
+			</isEqual>
+		<![CDATA[			
+			ORDER BY a.USER_NM 
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#
+		]]>				
+ 	</select>
+ 	
+	<select id="UserInfManageDAO.selectCmmntyUserListCnt" parameterClass="UserInfVO" resultClass="java.lang.Integer" >
+		<![CDATA[
+			SELECT 
+				COUNT(a.ESNTL_ID)
+			FROM 
+				V_BBS_USER_MASTER a, BBM_CMMNTY_USER b
+			WHERE 
+				a.ESNTL_ID = b.EMPLYR_ID
+			AND
+				b.CMMNTY_ID = #trgetId#
+		]]>
+			<isEqual prepend="AND" property="searchCnd" compareValue="0">
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
+			</isEqual>		
+	</select>
+ 
+
+	<select id="UserInfManageDAO.selectCmmntyMngrList" parameterClass="UserInfVO" resultMap="UserInfList" >
+ 		<![CDATA[
+			SELECT 
+				a.ESNTL_ID, a.USER_ID, a.USER_NM, a.USER_ZIP, a.USER_ADRES, a.USER_EMAIL, b.USE_AT, 
+				(SELECT USE_AT from BBM_CMMNTY WHERE CMMNTY_ID = #trgetId#) AS DELETED_AT
+			FROM 
+				V_BBS_USER_MASTER a, BBM_CMMNTY_USER b
+			WHERE 
+				a.ESNTL_ID = b.EMPLYR_ID 
+			AND
+				b.MNGR_AT = 'Y'
+			AND
+				b.CMMNTY_ID = #trgetId#				
+ 		]]>
+			<isEqual prepend="AND" property="searchCnd" compareValue="0">
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
+			</isEqual>
+		<![CDATA[			
+			ORDER BY a.USER_NM 
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#
+		]]>				
+ 	</select>
+ 	
+	<select id="UserInfManageDAO.selectCmmntyMngrListCnt" parameterClass="UserInfVO" resultClass="java.lang.Integer" >
+		<![CDATA[
+			SELECT 
+				COUNT(a.ESNTL_ID)
+			FROM 
+				V_BBS_USER_MASTER a, BBM_CMMNTY_USER b
+			WHERE 
+				a.ESNTL_ID = b.EMPLYR_ID 
+			AND
+				b.MNGR_AT = 'Y'
+			AND
+				b.CMMNTY_ID = #trgetId#				
+		]]>
+			<isEqual prepend="AND" property="searchCnd" compareValue="0">
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
+			</isEqual>		
+	</select>
+	
+
+	<select id="UserInfManageDAO.selectClubUserList" parameterClass="UserInfVO" resultMap="UserInfList" >
+ 		<![CDATA[
+			SELECT 
+				a.ESNTL_ID, a.USER_ID, a.USER_NM, a.USER_ZIP, a.USER_ADRES, a.USER_EMAIL, b.USE_AT,
+				(SELECT USE_AT from BBM_CLUB WHERE CLB_ID = #trgetId#) AS DELETED_AT
+			FROM 
+				V_BBS_USER_MASTER a, BBM_CLUB_USER b
+			WHERE 
+				a.ESNTL_ID = b.EMPLYR_ID 
+			AND
+				b.CLB_ID = #trgetId#				
+ 		]]>
+			<isEqual prepend="AND" property="searchCnd" compareValue="0">
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
+			</isEqual>
+		<![CDATA[			
+			ORDER BY a.USER_NM 
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#
+		]]>				
+ 	</select>
+ 	
+	<select id="UserInfManageDAO.selectClubUserListCnt" parameterClass="UserInfVO" resultClass="java.lang.Integer" >
+		<![CDATA[
+			SELECT 
+				COUNT(a.ESNTL_ID)
+			FROM 
+				V_BBS_USER_MASTER a, BBM_CLUB_USER b
+			WHERE 
+				a.ESNTL_ID = b.EMPLYR_ID 
+			AND
+				b.CLB_ID = #trgetId#						
+		]]>
+			<isEqual prepend="AND" property="searchCnd" compareValue="0">
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
+			</isEqual>		
+	</select>
+
+	<select id="UserInfManageDAO.selectClubOprtrList" parameterClass="UserInfVO" resultMap="UserInfList" >
+ 		<![CDATA[
+			SELECT 
+				a.ESNTL_ID, a.USER_ID, a.USER_NM, a.USER_ZIP, a.USER_ADRES, a.USER_EMAIL, b.USE_AT,
+				(SELECT USE_AT from BBM_CLUB WHERE CLB_ID = #trgetId#) AS DELETED_AT
+			FROM 
+				V_BBS_USER_MASTER a, BBM_CLUB_USER b
+			WHERE 
+				a.ESNTL_ID = b.EMPLYR_ID 
+			AND
+				b.OPRTR_AT = 'Y'
+			AND
+				b.CLB_ID = #trgetId#						
+ 		]]>
+			<isEqual prepend="AND" property="searchCnd" compareValue="0">
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
+			</isEqual>
+		<![CDATA[			
+			ORDER BY a.USER_NM 
+			LIMIT #recordCountPerPage# OFFSET #firstIndex#
+		]]>				
+ 	</select>
+ 	
+	<select id="UserInfManageDAO.selectClubOprtrListCnt" parameterClass="UserInfVO" resultClass="java.lang.Integer" >
+		<![CDATA[
+			SELECT 
+				COUNT(a.ESNTL_ID)
+			FROM 
+				V_BBS_USER_MASTER a, BBM_CLUB_USER b
+			WHERE 
+				a.ESNTL_ID = b.EMPLYR_ID 
+			AND
+				b.OPRTR_AT = 'Y'
+			AND
+				b.CLB_ID = #trgetId#						
+		]]>
+			<isEqual prepend="AND" property="searchCnd" compareValue="0">
+				<![CDATA[	a.USER_NM LIKE CONCAT('%', #searchWrd#,'%') 		]]>
+			</isEqual>		
+	</select>
+
+	<select id="UserInfManageDAO.selectAllClubUser" parameterClass="UserInfVO" resultMap="AllUserInfList" >
+		<![CDATA[
+			SELECT EMPLYR_ID as ESNTL_ID, CLB_ID as TRGET_ID 
+			FROM BBM_CLUB_USER WHERE USE_AT = 'Y'
+			AND CLB_ID = #trgetId#			
+		]]>
+	</select>
+	
+	<select id="UserInfManageDAO.selectAllCmmntyUser" parameterClass="UserInfVO" resultMap="AllUserInfList" >
+		<![CDATA[
+			SELECT EMPLYR_ID as ESNTL_ID, CMMNTY_ID as TRGET_ID 
+			FROM BBM_CMMNTY_USER WHERE USE_AT = 'Y'
+			AND CMMNTY_ID =  #trgetId#	
+		]]>
+	</select>	
+
+</sqlMap>

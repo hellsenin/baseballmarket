@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<sqlMap resource="sqlmap/com/bbm/cop/bbs/BBSMaster_SQL_Mysql.xml"/>	
+	<sqlMap resource="sqlmap/com/bbm/cop/bbs/Board_SQL_Mysql.xml"/>
+	<sqlMap resource="sqlmap/com/bbm/cop/bbs/BBSLoneMaster_SQL_Mysql.xml"/>
+	
+	<!-- 2009.06.26 : 2단계 기능 추가 (댓글관리, 만족도조사) -->
+	<sqlMap resource="sqlmap/com/bbm/cop/bbs/BBSAddedOptions_SQL_Mysql.xml"/>
+	
+	
+	
+<sqlMap resource="sqlmap/com/bbm/cop/bbs/BBSUse_SQL_Mysql.xml"></sqlMap></sqlMapConfig>

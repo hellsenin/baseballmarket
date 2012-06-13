@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="User">
+
+    <typeAlias  alias="egovMap"      type = "egovframework.rte.psl.dataaccess.util.EgovMap"/>
+    <typeAlias  alias="userSearchVO" type = "com.bbm.uss.umt.service.UserDefaultVO"/>
+    <typeAlias  alias="userVO"       type = "com.bbm.uss.umt.service.UserManageVO"/>
+
+    <select id="userManageDAO.selectUserList_S" parameterClass="userSearchVO" resultClass="egovMap">
+SELECT 
+    uniqId, userTy, userId , userNm, emailAdres, areaNo, middleTelno, endTelno, moblphonNo, groupId, sttus, sbscrbDe
+FROM(
+    SELECT
+        ESNTL_ID               uniqId,
+        'USR03'               userTy,
+        USER_ID             userId,
+        USER_NM             userNm,
+        EMAIL_ADRES           emailAdres,
+        AREA_NO               areaNo,
+        HOUSE_MIDDLE_TELNO      middleTelno,
+        HOUSE_END_TELNO         endTelno,
+        MBTLNUM           moblphonNo,
+        GROUP_ID              groupId,
+        USER_STTUS_CODE     sttus,
+        SBSCRB_DE             sbscrbDe
+    FROM    BBM_USER_INFO
+    ) A
+        WHERE 1=1
+        <isNotEqual prepend="AND" property="sbscrbSttus" compareValue="0">
+            sttus LIKE  #sbscrbSttus#
+        </isNotEqual>
+        <isEqual prepend="AND" property="searchCondition" compareValue="0">
+            userId LIKE #searchKeyword#
+        </isEqual>
+        <isEqual prepend="AND" property="searchCondition" compareValue="1">
+            userNm LIKE '%' #searchKeyword# '%'
+        </isEqual>
+        ORDER BY sbscrbDe DESC
+        LIMIT #recordCountPerPage# OFFSET #firstIndex#
+    </select>
+    
+    <select id="userManageDAO.selectUserListTotCnt_S" parameterClass="userSearchVO" resultClass="int">
+            SELECT COUNT(1) totcnt
+            FROM(
+            SELECT
+                ESNTL_ID               uniqId,
+                'USR03'               userTy,
+                USER_ID             userId,
+                USER_NM             userNm,
+                EMAIL_ADRES           emailAdres,
+                AREA_NO               areaNo,
+                HOUSE_MIDDLE_TELNO      middleTelno,
+                HOUSE_END_TELNO         endTelno,
+                MBTLNUM           moblphonNo,
+                GROUP_ID              groupId,
+                USER_STTUS_CODE     sttus,
+                SBSCRB_DE             sbscrbDe
+            FROM    BBM_USER_INFO
+            ) A
+        WHERE 1=1
+            <isNotEqual prepend="AND" property="sbscrbSttus" compareValue="0">
+                sttus LIKE  #sbscrbSttus#
+            </isNotEqual>
+            <isEqual prepend="AND" property="searchCondition" compareValue="0">
+                userId LIKE #searchKeyword#
+            </isEqual>
+            <isEqual prepend="AND" property="searchCondition" compareValue="1">
+                userNm LIKE '%' #searchKeyword# '%'
+            </isEqual>
+    </select>
+    
+    <insert id="userManageDAO.insertUser_S">
+        <![CDATA[
+            INSERT INTO BBM_USER_INFO 
+                (   ESNTL_ID             ,
+                    USER_ID           ,
+                    USER_NM           ,
+                    PASSWORD            ,
+                    PASSWORD_HINT       ,
+                    PASSWORD_CNSR       ,
+                    IHIDNUM             ,
+                    SEXDSTN_CODE        ,
+                    BRTHDY                ,
+                    AREA_NO             ,
+                    HOUSE_MIDDLE_TELNO    ,
+                    HOUSE_END_TELNO       ,
+                    HOUSE_ADRES           ,
+                    DETAIL_ADRES        ,
+                    ZIP                 ,
+                    MBTLNUM         ,
+                    EMAIL_ADRES         ,
+                    GROUP_ID            ,
+                    USER_STTUS_CODE   ,
+                    SBSCRB_DE                        )
+            VALUES (
+                    #uniqId#            ,
+                    #emplyrId#          ,
+                    #emplyrNm#          ,
+                    #password#          ,
+                    #passwordHint#      ,
+                    #passwordCnsr#      ,                   
+                    #ihidnum#           ,
+                    #sexdstnCode#       ,
+                    #brth#              ,
+                    #areaNo#            ,
+                    #homemiddleTelno#   ,
+                    #homeendTelno#      ,
+                    #homeadres#         ,
+                    #detailAdres#       ,
+                    #zip#               ,
+                    #moblphonNo#        ,
+                    #emailAdres#        ,
+                    #groupId#           ,
+                    #emplyrSttusCode#   ,
+                    sysdate()             )
+        ]]>
+    </insert>
+    
+    <delete id="userManageDAO.deleteUser_S">
+        <![CDATA[
+            DELETE FROM BBM_USER_INFO 
+            WHERE ESNTL_ID=#delId#
+        ]]>
+    </delete>
+    
+    <select id="userManageDAO.selectUser_S" resultClass="userVO">
+        <![CDATA[
+            SELECT
+                ESNTL_ID           uniqId            ,
+                'USR03'           userTy,
+            USER_ID         emplyrId          ,
+            USER_NM         emplyrNm          ,
+            PASSWORD          password          ,
+            PASSWORD_HINT     passwordHint      ,
+            PASSWORD_CNSR     passwordCnsr      ,
+            IHIDNUM           ihidnum           ,
+            SEXDSTN_CODE      sexdstnCode       ,
+            BRTHDY              brth              ,
+            AREA_NO           areaNo            ,
+            HOUSE_MIDDLE_TELNO  homemiddleTelno   ,
+            HOUSE_END_TELNO     homeendTelno      ,
+            HOUSE_ADRES         homeadres         ,
+            DETAIL_ADRES      detailAdres       ,
+            ZIP               zip               ,
+            MBTLNUM       moblphonNo        ,
+            EMAIL_ADRES       emailAdres        ,
+            GROUP_ID          groupId           ,
+            USER_STTUS_CODE emplyrSttusCode   , 
+            SBSCRB_DE         sbscrbDe          
+        FROM BBM_USER_INFO
+            WHERE ESNTL_ID=#uniqId#
+        ]]>
+    </select>
+    
+    <update id="userManageDAO.updateUser_S">
+        <![CDATA[
+            UPDATE BBM_USER_INFO 
+            SET USER_ID           = #emplyrId#        , 
+                USER_NM           = #emplyrNm#        ,
+                PASSWORD_HINT       = #passwordHint#    ,
+                PASSWORD_CNSR       = #passwordCnsr#    ,
+                IHIDNUM             = #ihidnum#         ,
+                SEXDSTN_CODE        = #sexdstnCode#     ,
+                BRTHDY                = #brth#            ,
+                AREA_NO             = #areaNo#          ,
+                HOUSE_MIDDLE_TELNO    = #homemiddleTelno# ,
+                HOUSE_END_TELNO       = #homeendTelno#    ,
+                HOUSE_ADRES           = #homeadres#       ,
+                DETAIL_ADRES        = #detailAdres#     ,
+                ZIP                 = #zip#             ,
+                MBTLNUM         = #moblphonNo#      ,
+                EMAIL_ADRES         = #emailAdres#      ,
+                GROUP_ID            = #groupId#         ,
+                USER_STTUS_CODE   = #emplyrSttusCode# 
+            WHERE ESNTL_ID = #uniqId#
+        ]]>
+    </update>
+    
+    <insert id="userManageDAO.insertUserHistory_S">
+        <![CDATA[
+            INSERT INTO COMTHEMPLYRINFOCHANGEDTLS 
+                (   USER_ID           ,
+                    EMPL_NO             ,
+                    SEXDSTN_CODE        ,
+                    BRTHDY                ,
+                    AREA_NO             ,
+                    HOUSE_MIDDLE_TELNO    ,
+                    HOUSE_END_TELNO       ,
+                    HOUSE_ADRES           ,
+                    DETAIL_ADRES        ,
+                    ZIP                 ,
+                    MBTLNUM         ,
+                    EMAIL_ADRES         ,
+                    GROUP_ID            ,
+                    USER_STTUS_CODE   ,
+                    ESNTL_ID             ,
+                    CHANGE_DE           )
+            SELECT 
+                    USER_ID           ,
+                    EMPL_NO             ,
+                    SEXDSTN_CODE        ,
+                    BRTHDY                ,
+                    AREA_NO             ,
+                    HOUSE_MIDDLE_TELNO    ,
+                    HOUSE_END_TELNO       ,
+                    HOUSE_ADRES           ,
+                    DETAIL_ADRES        ,
+                    ZIP                 ,
+                    MBTLNUM         ,
+                    EMAIL_ADRES         ,
+                    GROUP_ID            ,
+                    USER_STTUS_CODE   ,
+                    ESNTL_ID             ,
+                    now()
+            FROM BBM_USER_INFO
+            WHERE ESNTL_ID = #uniqId#
+        ]]>
+    </insert>
+    
+    <select id="userManageDAO.checkIdDplct_S" resultClass="int">
+        <![CDATA[
+            SELECT COUNT(1) usedCnt
+                FROM(
+                SELECT
+                    USER_ID             userId
+                FROM    BBM_USER_INFO
+                UNION ALL
+                SELECT
+                    ENTRPRS_MBER_ID        userId
+                FROM    BBM_ENTRPRS_INFO
+                ) A
+            WHERE userId = #checkId#
+        ]]>
+    </select>
+    
+    <update id="userManageDAO.updatePassword_S">
+        <![CDATA[
+            UPDATE BBM_USER_INFO 
+            SET 
+                   PASSWORD   =  #password#
+            WHERE  ESNTL_ID  = #uniqId#
+        ]]>
+    </update>
+    
+    <select id="userManageDAO.selectPassword_S" resultClass="userVO">
+        <![CDATA[
+            SELECT
+                    PASSWORD          password 
+            FROM    BBM_USER_INFO
+            WHERE   ESNTL_ID=#uniqId#
+        ]]>
+    </select>
+    
+</sqlMap>
