@@ -149,6 +149,10 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <form:errors path="passwordCnsr" cssClass="error"/>
                 </td>
             </tr>
+            
+            
+            
+            <%-- 
             <tr>
                 <th width="20%" height="23" class="required_text" nowrap >소속기관코드&nbsp;&nbsp;</th>
                 <td width="80%" nowrap>
@@ -159,6 +163,7 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <form:errors path="insttCode" cssClass="error"/>
                 </td>
             </tr>
+            
             <tr>
                 <th width="20%" height="23" class="required_text" nowrap >조직아이디&nbsp;&nbsp;</th>
                 <td width="80%" nowrap>
@@ -183,6 +188,8 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <form:errors path="emplNo" cssClass="error" />
                 </td>
             </tr>
+             --%>
+            
             <tr>
                 <th width="20%" height="23" class="required_text" nowrap >성별구분코드&nbsp;&nbsp;</th>
                 <td width="80%" nowrap>
@@ -212,6 +219,9 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <form:errors path="homeendTelno" cssClass="error" />
                 </td>
             </tr>
+            
+            
+            <%-- 
             <tr>
                 <th width="20%" height="23" class="required_text" nowrap >사무실전화번호&nbsp;&nbsp;</th>
                 <td width="80%" nowrap>
@@ -226,6 +236,8 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <form:errors path="fxnum" cssClass="error" />
                 </td>
             </tr>
+             --%>
+            
             <tr>
                 <th width="20%" height="23" class="required_text" nowrap >핸드폰번호&nbsp;&nbsp;</th>
                 <td width="80%" nowrap>
@@ -271,6 +283,8 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <form:errors path="detailAdres" cssClass="error" />
                 </td>
             </tr>
+            
+            <%-- 
             <tr>
                 <th width="20%" height="23" class="required_text" nowrap >
                 그룹아이디<img src="<c:url value='/images/egovframework/com/cmm/icon/required.gif' />" width="15" height="15" alt="필수입력표시" />
@@ -283,6 +297,8 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                    <form:errors path="groupId" cssClass="error"/>
                 </td>
             </tr>
+             --%>
+            
             <tr>
                 <th width="20%" height="23" class="required_text" nowrap >
                 사용자상태코드<img src="<c:url value='/images/egovframework/com/cmm/icon/required.gif' />" width="15" height="15" alt="필수입력표시" />
@@ -295,6 +311,8 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <form:errors path="emplyrSttusCode" cssClass="error"/>
                 </td>
             </tr>
+            
+            <%-- 
             <tr>
                 <th width="20%" height="23" class="required_text" nowrap >사용자DN&nbsp;&nbsp;</th>
                 <td width="80%" nowrap>
@@ -305,6 +323,7 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <input type="hidden" name="password" value="dummy">
                 </td>
             </tr>
+             --%>
             
         </table>
         <table width="717" border="0" cellspacing="0" cellpadding="0">

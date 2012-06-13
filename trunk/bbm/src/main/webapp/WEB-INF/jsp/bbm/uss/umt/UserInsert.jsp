@@ -236,6 +236,7 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <div><form:errors path="detailAdres" cssClass="error" /></div>
                 </td>
             </tr>
+            <!-- 
             <tr>
                 <th width="20%" height="23" class="required_text"  >
                     그룹아이디<img src="<c:url value='/images/egovframework/com/cmm/icon/required.gif' />" width="15" height="15" alt="필수입력표시" />
@@ -248,6 +249,7 @@ if (typeof(opener.fn_egov_dn_info_setting) == 'undefined') {
                     <div><form:errors path="groupId" cssClass="error"/></div>
                 </td>
             </tr>
+             -->
             <tr>
                 <th width="20%" height="23" class="required_text"  >
                     사용자상태코드<img src="<c:url value='/images/egovframework/com/cmm/icon/required.gif' />" width="15" height="15" alt="필수입력표시" />
