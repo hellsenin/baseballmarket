@@ -40,18 +40,13 @@ public class LoginVO implements Serializable{
 	private String passwordCnsr;
 	/** 사용자구분 */
 	private String userSe;
-	/** 조직(부서)ID */
-	private String orgnztId;
-	/** 조직(부서)명 */
-	private String orgnztNm;
 	/** 고유아이디 */
 	private String uniqId;
 	/** 로그인 후 이동할 페이지 */
 	private String url;
 	/** 사용자 IP정보 */
 	private String ip;
-	/** GPKI인증 DN */
-	private String dn;
+	
 	/**
 	 * id attribute 를 리턴한다.
 	 * @return String
@@ -165,20 +160,6 @@ public class LoginVO implements Serializable{
 		this.userSe = userSe;
 	}
 	/**
-	 * orgnztId attribute 를 리턴한다.
-	 * @return String
-	 */
-	public String getOrgnztId() {
-		return orgnztId;
-	}
-	/**
-	 * orgnztId attribute 값을 설정한다.
-	 * @param orgnztId String
-	 */
-	public void setOrgnztId(String orgnztId) {
-		this.orgnztId = orgnztId;
-	}
-	/**
 	 * uniqId attribute 를 리턴한다.
 	 * @return String
 	 */
@@ -220,31 +201,6 @@ public class LoginVO implements Serializable{
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
-	/**
-	 * dn attribute 를 리턴한다.
-	 * @return String
-	 */
-	public String getDn() {
-		return dn;
-	}
-	/**
-	 * dn attribute 값을 설정한다.
-	 * @param dn String
-	 */
-	public void setDn(String dn) {
-		this.dn = dn;
-	}
-	/**
-	 * @return the orgnztNm
-	 */
-	public String getOrgnztNm() {
-		return orgnztNm;
-	}
-	/**
-	 * @param orgnztNm the orgnztNm to set
-	 */
-	public void setOrgnztNm(String orgnztNm) {
-		this.orgnztNm = orgnztNm;
-	}
+
 	
 }

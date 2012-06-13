@@ -138,13 +138,13 @@ public class UserManageController {
         List emplyrSttusCode_result = cmmUseService.selectCmmCodeDetail(vo);        
        
         //그룹정보를 조회 - GROUP_ID정보
-        vo.setTableNm("COMTNORGNZTINFO");
-        List groupId_result = cmmUseService.selectGroupIdDetail(vo);
+        //vo.setTableNm("COMTNORGNZTINFO");
+        //List groupId_result = cmmUseService.selectGroupIdDetail(vo);
                 
         model.addAttribute("passwordHint_result",      passwordHint_result);     //패스워트힌트목록
         model.addAttribute("sexdstnCode_result",       sexdstnCode_result);      //성별구분코드목록
         model.addAttribute("emplyrSttusCode_result",emplyrSttusCode_result);//사용자상태코드목록
-        model.addAttribute("groupId_result",         groupId_result);        //그룹정보 목록
+        //model.addAttribute("groupId_result",         groupId_result);        //그룹정보 목록
         
         return "bbm/uss/umt/UserInsert";
     }
@@ -168,12 +168,14 @@ public class UserManageController {
     	if (bindingResult.hasErrors()){
     		return "bbm/uss/umt/UserInsert";
 		}else{
+			/*
 			if(userManageVO.getOrgnztId().equals("")){
 				userManageVO.setOrgnztId(null);
 			}
 			if(userManageVO.getGroupId().equals("")){
 				userManageVO.setGroupId(null);
 			}
+			*/
 			userManageService.insertUser(userManageVO);
 	        //Exception 없이 진행시 등록성공메시지
 	        model.addAttribute("resultMsg", "success.common.insert");
