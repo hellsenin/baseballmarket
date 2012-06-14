@@ -66,13 +66,13 @@
 		var width = "";
 
 		if (frm.tmplatSeCode.value == 'TMPT01') {
-			target = "<c:url value='/cop/bbs/previewBoardList.do' />";
+			target = "<c:url value='/cop/bbs/popup/previewBoardList.do' />";
 			width = "750";
 		} else if (frm.tmplatSeCode.value == 'TMPT02') {
-			target = "<c:url value='/cop/cmy/previewCmmntyMainPage.do' />";
+			target = "<c:url value='/cop/cmy/popup/previewCmmntyMainPage.do' />";
 			width = "980";
 		} else if (frm.tmplatSeCode.value == 'TMPT03') {
-			target = "<c:url value='/cop/cus/previewClubMainPage.do' />";
+			target = "<c:url value='/cop/cus/popup/previewClubMainPage.do' />";
 			width = "980";
 		} else {
 			alert('<spring:message code="cop.tmplatCours" /> 지정 후 선택해 주세요.');

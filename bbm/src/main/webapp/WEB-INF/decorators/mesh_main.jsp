@@ -185,12 +185,12 @@
 	
 </head>
 <body>
-	
+	 
 <!-- 상단영역 -->
 <div class="ui-layout-north" onmouseover="myLayout.allowOverflow('north')" onmouseout="myLayout.resetOverflow(this)">
 	 <form:form commandName="loginVO" name="loginFormTop"  method="post">
 	<div id="login" align="left">
-		아이디:<input name="userId" type="text" value="" size="15" maxlength="20">&nbsp;
+		아이디:<input name="id" type="text" value="" size="15" maxlength="20">&nbsp;
 		비밀번호:<input name="password" type="password" value="" size="15" maxlength="20">&nbsp;
 		<button onClick="actionLoginTop()">로그인</button>
 	<input name="devLoginAt" type="hidden" value="Y" >&nbsp;
@@ -309,7 +309,7 @@
 					<ul>
 						<li><span class="file"><a href="/cop/bbs/selectBoardMasterList.do" >게시판생성관리</a></span></li>
 						<li><span class="file"><a href="/cop/bbs/selectBoardList.do" >게시판관리</a></span></li>
-						<li><span class="file"><a href="" ></a></span></li>
+						<li><span class="file"><a href="/cop/tpl/selectTemplateInfs.do" >템플릿관리</a></span></li>
 					</ul>
 				</li>
 				

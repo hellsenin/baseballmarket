@@ -68,7 +68,7 @@ public class CopViewController {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/cop/com/openPopup.do")
+    @RequestMapping("/cop/com/popup/openPopup.do")
     public String openPopupWindow(Map<String, Object> commandMap, ModelMap model) throws Exception {
 
 	String requestUrl = (String)commandMap.get("requestUrl");
@@ -99,6 +99,6 @@ public class CopViewController {
 	model.addAttribute("width", width);
 	model.addAttribute("height", height);
 	
-	return "bbm/cop/com/EgovModalPopupFrame";
+	return "bbm/cop/com/ModalPopupFrame";
     }
 }

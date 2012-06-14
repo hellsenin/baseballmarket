@@ -97,7 +97,7 @@ public class TemplateManageController {
 	model.addAttribute("resultCnt", map.get("resultCnt"));
 	model.addAttribute("paginationInfo", paginationInfo);
 
-	return "egovframework/com/cop/tpl/TemplateList";
+	return "bbm/cop/tpl/TemplateList";
     }
 
     /**
@@ -122,7 +122,7 @@ public class TemplateManageController {
 	model.addAttribute("TemplateInfVO", vo);
 	model.addAttribute("resultList", result);
 
-	return "egovframework/com/cop/tpl/TemplateUpdt";
+	return "bbm/cop/tpl/TemplateUpdt";
     }
 
     /**
@@ -153,7 +153,7 @@ public class TemplateManageController {
 	    
 	    model.addAttribute("resultList", result);
 
-	    return "egovframework/com/cop/tpl/TemplateRegist";
+	    return "bbm/cop/tpl/TemplateRegist";
 	}
 
 	templateInf.setFrstRegisterId(user.getUniqId());
@@ -184,7 +184,7 @@ public class TemplateManageController {
 	
 	model.addAttribute("resultList", result);
 
-	return "egovframework/com/cop/tpl/TemplateRegist";
+	return "bbm/cop/tpl/TemplateRegist";
     }
 
     /**
@@ -218,7 +218,7 @@ public class TemplateManageController {
 	    model.addAttribute("TemplateInfVO", vo);
 	    model.addAttribute("resultList", result);
 
-	    return "egovframework/com/cop/tpl/TemplateUpdt";
+	    return "bbm/cop/tpl/TemplateUpdt";
 	}
 
 	templateInf.setLastUpdusrId(user.getUniqId());
@@ -263,7 +263,7 @@ public class TemplateManageController {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/cop/tpl/selectTemplateInfsPop.do")
+    @RequestMapping("/cop/tpl/popup/selectTemplateInfsPop.do")
     public String selectTemplateInfsPop(@ModelAttribute("searchVO") TemplateInfVO tmplatInfVO, Map<String, Object> commandMap, ModelMap model)
 	    throws Exception {
 
@@ -304,6 +304,6 @@ public class TemplateManageController {
 	model.addAttribute("typeFlag", typeFlag);
 	model.addAttribute("paginationInfo", paginationInfo);
 
-	return "egovframework/com/cop/tpl/TemplateInqirePopup";
+	return "bbm/cop/tpl/TemplateInqirePopup";
     }
 }
