@@ -53,7 +53,7 @@
 	function fn_egov_inqire_tmplatInqire(){
 		form = document.boardMaster;
 		var retVal;
-		var url = "<c:url value='/cop/com/openPopup.do?requestUrl=/cop/tpl/selectTemplateInfsPop.do&typeFlag=BBS&width=850&height=360'/>";
+		var url = "<c:url value='/cop/com/popup/openPopup.do?requestUrl=/cop/tpl/popup/selectTemplateInfsPop.do&typeFlag=BBS&width=850&height=360'/>";
 		var openParam = "dialogWidth: 900px; dialogHeight: 360px; resizable: 0, scroll: 1, center: 1";
 
 		retVal = window.showModalDialog(url,"p_tmplatInqire", openParam);

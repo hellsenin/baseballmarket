@@ -1603,7 +1603,7 @@ public class BBSManageController {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/cop/bbs/previewBoardList.do")
+    @RequestMapping("/cop/bbs/popup/previewBoardList.do")
     public String previewBoardArticles(@ModelAttribute("searchVO") BoardVO boardVO, ModelMap model) throws Exception {
 	//LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
 

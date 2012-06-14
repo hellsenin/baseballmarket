@@ -10,9 +10,9 @@
 		<property name="basenames">
 			<list>
 				<value>classpath:/message/com/message-common</value>
-				<value>classpath:/rte/fdl/idgnr/messages/idgnr</value>
-				<value>classpath:/rte/fdl/property/messages/properties</value>
-				<value>classpath:/props/globals</value>
+				<value>classpath:/egovframework/rte/fdl/idgnr/messages/idgnr</value>
+				<value>classpath:/egovframework/rte/fdl/property/messages/properties</value>
+				<value>classpath:/egovframework/props/globals</value>
 			</list>
 		</property>
 		<property name="cacheSeconds">
