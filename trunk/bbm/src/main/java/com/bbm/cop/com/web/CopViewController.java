@@ -30,8 +30,8 @@ public class CopViewController {
 	 
 	 
 
-    //@Resource(name = "EgovCommunityManageService")
-    //private EgovCommunityManageService cmmntyService;
+    //@Resource(name = "CommunityManageService")
+    //private CommunityManageService cmmntyService;
 
     //Logger log = Logger.getLogger(this.getClass());
 

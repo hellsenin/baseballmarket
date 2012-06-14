@@ -69,7 +69,7 @@
 			FROM 
 				V_BBS_USER_MASTER a, BBM_CMMNTY_USER b
 			WHERE 
-				a.ESNTL_ID = b.EMPLYR_ID 
+				a.ESNTL_ID = b.USER_ID 
 			AND
 				b.CMMNTY_ID = #trgetId#
  		]]>
@@ -89,7 +89,7 @@
 			FROM 
 				V_BBS_USER_MASTER a, BBM_CMMNTY_USER b
 			WHERE 
-				a.ESNTL_ID = b.EMPLYR_ID
+				a.ESNTL_ID = b.USER_ID
 			AND
 				b.CMMNTY_ID = #trgetId#
 		]]>
@@ -107,7 +107,7 @@
 			FROM 
 				V_BBS_USER_MASTER a, BBM_CMMNTY_USER b
 			WHERE 
-				a.ESNTL_ID = b.EMPLYR_ID 
+				a.ESNTL_ID = b.USER_ID 
 			AND
 				b.MNGR_AT = 'Y'
 			AND
@@ -129,7 +129,7 @@
 			FROM 
 				V_BBS_USER_MASTER a, BBM_CMMNTY_USER b
 			WHERE 
-				a.ESNTL_ID = b.EMPLYR_ID 
+				a.ESNTL_ID = b.USER_ID 
 			AND
 				b.MNGR_AT = 'Y'
 			AND
@@ -149,7 +149,7 @@
 			FROM 
 				V_BBS_USER_MASTER a, BBM_CLUB_USER b
 			WHERE 
-				a.ESNTL_ID = b.EMPLYR_ID 
+				a.ESNTL_ID = b.USER_ID 
 			AND
 				b.CLB_ID = #trgetId#				
  		]]>
@@ -169,7 +169,7 @@
 			FROM 
 				V_BBS_USER_MASTER a, BBM_CLUB_USER b
 			WHERE 
-				a.ESNTL_ID = b.EMPLYR_ID 
+				a.ESNTL_ID = b.USER_ID 
 			AND
 				b.CLB_ID = #trgetId#						
 		]]>
@@ -186,7 +186,7 @@
 			FROM 
 				V_BBS_USER_MASTER a, BBM_CLUB_USER b
 			WHERE 
-				a.ESNTL_ID = b.EMPLYR_ID 
+				a.ESNTL_ID = b.USER_ID 
 			AND
 				b.OPRTR_AT = 'Y'
 			AND
@@ -208,7 +208,7 @@
 			FROM 
 				V_BBS_USER_MASTER a, BBM_CLUB_USER b
 			WHERE 
-				a.ESNTL_ID = b.EMPLYR_ID 
+				a.ESNTL_ID = b.USER_ID 
 			AND
 				b.OPRTR_AT = 'Y'
 			AND
@@ -221,7 +221,7 @@
 
 	<select id="UserInfManageDAO.selectAllClubUser" parameterClass="UserInfVO" resultMap="AllUserInfList" >
 		<![CDATA[
-			SELECT EMPLYR_ID as ESNTL_ID, CLB_ID as TRGET_ID 
+			SELECT USER_ID as ESNTL_ID, CLB_ID as TRGET_ID 
 			FROM BBM_CLUB_USER WHERE USE_AT = 'Y'
 			AND CLB_ID = #trgetId#			
 		]]>
@@ -229,7 +229,7 @@
 	
 	<select id="UserInfManageDAO.selectAllCmmntyUser" parameterClass="UserInfVO" resultMap="AllUserInfList" >
 		<![CDATA[
-			SELECT EMPLYR_ID as ESNTL_ID, CMMNTY_ID as TRGET_ID 
+			SELECT USER_ID as ESNTL_ID, CMMNTY_ID as TRGET_ID 
 			FROM BBM_CMMNTY_USER WHERE USE_AT = 'Y'
 			AND CMMNTY_ID =  #trgetId#	
 		]]>

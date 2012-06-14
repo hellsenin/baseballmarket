@@ -68,7 +68,7 @@ public class EgovSndngMailDetailController {
         model.addAttribute("resultInfo", resultMailVO);
         if (!resultMailVO.getMssageId().equals("")) {
         	// 발송메일 상세조회 화면 이동
-        	return "egovframework/com/cop/ems/EgovMailDetail";
+        	return "bbm/cop/ems/EgovMailDetail";
         } else {
         	// 오류 페이지 이동
         	return "egovframework/com/cmm/egovError";

@@ -82,7 +82,7 @@ public class EgovSndngMailDtlsController {
         model.addAttribute("paginationInfo", paginationInfo);
         model.addAttribute("message", egovMessageSource.getMessage("success.common.select"));
 
-        return "egovframework/com/cop/ems/EgovMailDtls";
+        return "bbm/cop/ems/EgovMailDtls";
 	}
     
     /**

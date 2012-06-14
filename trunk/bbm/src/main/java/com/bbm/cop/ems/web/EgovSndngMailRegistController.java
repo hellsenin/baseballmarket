@@ -70,7 +70,7 @@ public class EgovSndngMailRegistController {
 			ModelMap model) throws Exception {
     	
     	model.addAttribute("resultInfo", sndngMailVO);
-    	return "egovframework/com/cop/ems/EgovMailRegist";
+    	return "bbm/cop/ems/EgovMailRegist";
     }
     
     /**
@@ -119,7 +119,7 @@ public class EgovSndngMailRegistController {
     			return "redirect:/cop/ems/selectSndngMailList.do";
     		} else {
     			model.addAttribute("closeYn", "Y");
-    	    	return "egovframework/com/cop/ems/EgovMailRegist";
+    	    	return "bbm/cop/ems/EgovMailRegist";
     		}
     	} else {
     		return "egovframework/com/cmm/EgovError";

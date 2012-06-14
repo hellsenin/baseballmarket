@@ -1,6 +1,9 @@
-package com.bbm.cop.bbs.service;
+package com.bbm.cop.cmy.service;
 
 import java.util.Map;
+
+import com.bbm.cop.bbs.service.BoardUseInf;
+import com.bbm.cop.bbs.service.BoardUseInfVO;
 
 
 /**
@@ -16,10 +19,10 @@ import java.util.Map;
  *   수정일      수정자           수정내용
  *  -------    --------    ---------------------------
  *   2009.4.2   이삼섭          최초 생성
- *	 2011.7.27  안민정			동호회, 커뮤니티 로직 분리  (BBSUseInfoManageService -> CmyBBSUseInfoManageService)
+ *   2011.07.27 안민정      	    동호회, 커뮤니티 로직 분리하여 신규 생성  (EgovBBSUseInfoManageService -> CmyBBSUseInfoManageService)
  * </pre>
  */
-public interface BBSUseInfoManageService {
+public interface CmyBBSUseInfoManageService {
 
     /**
      * 게시판 사용 정보를 삭제한다.
@@ -28,6 +31,38 @@ public interface BBSUseInfoManageService {
      * @throws Exception
      */
     public void deleteBBSUseInf(BoardUseInf bdUseInf) throws Exception;
+
+    /**
+     * 커뮤니티에 사용되는 게시판 사용정보를 삭제한다.
+     * 
+     * @param bdUseInf
+     * @throws Exception
+     */
+    public void deleteBBSUseInfByCmmnty(BoardUseInfVO bdUseVO) throws Exception;
+
+    /**
+     * 동호회에 사용되는 게시판 사용정보를 삭제한다.
+     * 
+     * @param bdUseInf
+     * @throws Exception
+     */
+    public void deleteBBSUseInfByClub(BoardUseInfVO bdUseVO) throws Exception;
+
+    /**
+     * 커뮤니티에 사용되는 모든 게시판 사용정보를 삭제한다.
+     * 
+     * @param bdUseInf
+     * @throws Exception
+     */
+    public void deleteAllBBSUseInfByCmmnty(BoardUseInfVO bdUseVO) throws Exception;
+
+    /**
+     * 동호회에 사용되는 모든 게시판 사용정보를 삭제한다.
+     * 
+     * @param bdUseInf
+     * @throws Exception
+     */
+    public void deleteAllBBSUseInfByClub(BoardUseInfVO bdUseVO) throws Exception;
 
     /**
      * 게시판 사용정보를 등록한다.

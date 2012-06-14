@@ -312,6 +312,14 @@
 						<li><span class="file"><a href="/cop/tpl/selectTemplateInfs.do" >템플릿관리</a></span></li>
 					</ul>
 				</li>
+				<li><span class="folder">커뮤니티관리</span>
+					<ul>
+						<li><span class="file"><a href="/cop/cmy/selectCmmntyInfs.do" >커뮤니티관리</a></span></li>
+						<li><span class="file"><a href="" >커뮤니티방명록</a></span></li>
+						<li><span class="file"><a href="" >커뮤니티사진첩</a></span></li>
+						<li><span class="file"><a href="/cop/clb/selectClubInfs.do" >동호회관리</a></span></li>
+					</ul>
+				</li>
 				
 				<li><span class="folder">기타</span>
 					<ul>
