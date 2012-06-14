@@ -99,10 +99,10 @@ public class BBSUseInfoManageController {
     @RequestMapping("/cop/com/addBBSUseInf.do")
     public String addBBSUseInf(@ModelAttribute("searchVO") BoardUseInfVO bdUseVO, ModelMap model) throws Exception {
     	
-    	if(EgovComponentChecker.hasComponent("EgovCommunityManageService")){//2011.09.15
+    	if(EgovComponentChecker.hasComponent("CommunityManageService")){//2011.09.15
     		model.addAttribute("useCommunity", "true");
     	}
-    	if(EgovComponentChecker.hasComponent("EgovClubManageService")){//2011.09.15
+    	if(EgovComponentChecker.hasComponent("ClubManageService")){//2011.09.15
     		model.addAttribute("useClub", "true");
     	}
     	
@@ -192,10 +192,10 @@ public class BBSUseInfoManageController {
 	model.addAttribute("paginationInfo", paginationInfo);
 	
 	
-	if(EgovComponentChecker.hasComponent("EgovCommunityManageService")){//2011.09.15
+	if(EgovComponentChecker.hasComponent("CommunityManageService")){//2011.09.15
 		model.addAttribute("useCommunity", "true");
 	}
-	if(EgovComponentChecker.hasComponent("EgovClubManageService")){//2011.09.15
+	if(EgovComponentChecker.hasComponent("ClubManageService")){//2011.09.15
 		model.addAttribute("useClub", "true");
 	}
 

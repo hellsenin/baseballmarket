@@ -27,7 +27,7 @@ import egovframework.rte.fdl.cmmn.AbstractServiceImpl;
  *   수정일      수정자           수정내용
  *  -------    --------    ---------------------------
  *   2009.4.2   이삼섭          최초 생성
- *   2011.7.27  안민정			동호회, 커뮤니티 로직 분리 (BBSUseInfoManageServiceImpl -> EgovCmyBBSUseInfoManageServiceImpl)
+ *   2011.7.27  안민정			동호회, 커뮤니티 로직 분리 (BBSUseInfoManageServiceImpl -> CmyBBSUseInfoManageServiceImpl)
  *
  * </pre>
  */
