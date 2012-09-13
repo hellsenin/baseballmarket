@@ -42,7 +42,7 @@ public class EgovComUtlController {
 		String link = linkPage;
 		// service 사용하여 리턴할 결과값 처리하는 부분은 생략하고 단순 페이지 링크만 처리함
 		if (linkPage==null || linkPage.equals("")){
-			link="egovframework/com/cmm/egovError";
+			link="bbm/cmm/egovError";
 		}
 		return link;
 	}
@@ -52,7 +52,7 @@ public class EgovComUtlController {
 	 */
 	@RequestMapping("/validator.do")
 	public String validate(){
-		return "egovframework/com/cmm/validator";
+		return "bbm/cmm/validator";
 	}
 
 }
