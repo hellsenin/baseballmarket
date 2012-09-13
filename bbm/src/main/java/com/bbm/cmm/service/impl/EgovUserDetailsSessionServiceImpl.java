@@ -32,7 +32,6 @@ public class EgovUserDetailsSessionServiceImpl extends AbstractServiceImpl imple
 	public Object getAuthenticatedUser() {
 
 	
-
 		return RequestContextHolder.getRequestAttributes().getAttribute("loginVO", RequestAttributes.SCOPE_SESSION);
 
 	}
