@@ -110,10 +110,11 @@ public class BBSLoneMasterController {
     @SuppressWarnings("unchecked")
     @RequestMapping("/cop/bbs/insertBoardMaster.do")
     public String insertBoardMaster(@ModelAttribute("searchVO") BoardMasterVO boardMasterVO, @ModelAttribute("boardMaster") BoardMaster boardMaster,
-	    BindingResult bindingResult, SessionStatus status, ModelMap model) throws Exception {
+		BindingResult bindingResult, SessionStatus status, HttpServletRequest request, ModelMap model) throws Exception {
 
-	LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
-	Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+	//LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+	LoginVO user = (LoginVO)request.getSession().getAttribute("loginVO");
+	//Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
 
 	beanValidator.validate(boardMaster, bindingResult);
 	if (bindingResult.hasErrors()) {
@@ -135,7 +136,7 @@ public class BBSLoneMasterController {
 	    return "bbm/cop/bbs/BBSLoneMstrRegist";
 	}
 
-	if (isAuthenticated) {
+	if (user.getId()!=null) {
 	    boardMaster.setFrstRegisterId(user.getUniqId());
 	    boardMaster.setUseAt("Y");
 	    boardMaster.setTrgetId("SYSTEMDEFAULT_REGIST");
