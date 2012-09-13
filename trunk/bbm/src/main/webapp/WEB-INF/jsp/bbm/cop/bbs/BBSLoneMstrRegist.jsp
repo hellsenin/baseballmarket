@@ -28,7 +28,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="<c:url value='/css/egovframework/com/cmm/com.css' />" rel="stylesheet" type="text/css">
 <link href="<c:url value='/css/egovframework/com/cmm/button.css' />" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="<c:url value='/js/egovframework/com/cop/bbs/BBSMng.js' />"></script>
+<script type="text/javascript" src="<c:url value='/js/common/bbs/BBSMng.js' />"></script>
 <script type="text/javascript" src="<c:url value="/validator.do"/>"></script>
 <validator:javascript formName="boardMaster" staticJavascript="false" xhtml="true" cdata="false"/>
 <script type="text/javascript">
