@@ -29,16 +29,17 @@
             <enabled>true</enabled>
         </snapshots>
     </repository>
-    <repository>
-        <id>egovframe</id>
-        <url>http://www.egovframe.go.kr/maven/</url>
-        <releases>
-            <enabled>false</enabled>
-        </releases>
-        <snapshots>
-            <enabled>false</enabled>
-        </snapshots>
-    </repository>
+    <repository> 
+            <id>egovframe</id> 
+            <url>http://www.egovframe.go.kr/maven/</url>
+            <releases> 
+                    <enabled>true</enabled> 
+            </releases> 
+            <snapshots> 
+                    <enabled>false</enabled> 
+            </snapshots> 
+    </repository> 
+
     <repository>
 		<id>public</id>
 		<url>http://203.249.114.18:8080/nexus/content/groups/public/</url>
@@ -235,11 +236,17 @@
 		</dependency>
 
 		<!-- logging -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.3alpha-8</version>
+		</dependency> -->
+		<dependency>
+		<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
 		</dependency>
+	            
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -250,11 +257,11 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>1.5.11</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>net.sf</groupId>
 			<artifactId>log4jdbc3</artifactId>
 			<version>1.1</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- validation -->
 		<dependency>
@@ -266,8 +273,9 @@
 		<dependency>
 			<groupId>org.springmodules</groupId>
 			<artifactId>spring-modules-validation</artifactId>
-			<version>0.9</version>
+			<version>0.8</version>
 		</dependency>
+		            
 
 		<dependency>
 			<groupId>commons-digester</groupId>
@@ -546,12 +554,15 @@
 			<artifactId>xbean</artifactId>
 			<version>2.2.0</version>
 		</dependency>
-		<dependency>
-			<groupId>egovframework.com.ems</groupId>
-			<artifactId>sndng-mail</artifactId>
-			<version>1.0</version>
+		
+		<!-- Email (egovframework.com.ems) -->                 
+		<dependency>                         
+		<groupId>egovframework.com.ems</groupId>                         
+			<artifactId>sndng-mail</artifactId>                         
+			<version>1.0</version>                 
 		</dependency>
-
+		<!-- Email End --> 
+		
 		<!-- fileupload -->
 		<dependency>
 			<groupId>commons-io</groupId>
