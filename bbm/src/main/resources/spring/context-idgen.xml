@@ -1761,7 +1761,7 @@
         <property name="fillChar" value="0" />
     </bean> 
     <!-- 배치결과 ID -->   
-      
+    
     <!--  파일시스템모니터링 ID -->
     <bean name="egovFileSysMntrngIdGnrService"
         class="egovframework.rte.fdl.idgnr.impl.EgovTableIdGnrService"
