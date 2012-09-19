@@ -36,7 +36,7 @@
 				a.ATCH_FILE_ID, b.FILE_CN, b.FILE_SN, b.FILE_STRE_COURS, b.STRE_FILE_NM,
 				b.FILE_EXTSN, b.ORIGNL_FILE_NM, b.FILE_SIZE, a.CREAT_DT
 			FROM
-				COMTNFILE a, COMTNFILEDETAIL b
+				BBM_FILE a, BBM_FILE_DETAIL b
 			WHERE
 				a.ATCH_FILE_ID = #atchFileId#
 			AND 
@@ -49,7 +49,7 @@
  	
 	<insert id="FileManageDAO.insertFileMaster" parameterClass="FileVO" >
 		<![CDATA[
-			INSERT INTO COMTNFILE
+			INSERT INTO BBM_FILE
 			(ATCH_FILE_ID, CREAT_DT, USE_AT)
 			VALUES
 			( #atchFileId#, SYSDATE(), 'Y')			
@@ -58,7 +58,7 @@
 	
 	<insert id="FileManageDAO.insertFileDetail" parameterClass="FileVO" >
 		<![CDATA[
-			INSERT INTO COMTNFILEDETAIL
+			INSERT INTO BBM_FILE_DETAIL
 			( ATCH_FILE_ID, FILE_SN, FILE_STRE_COURS, STRE_FILE_NM, 
 			  ORIGNL_FILE_NM, FILE_EXTSN, FILE_SIZE, FILE_CN )
 			VALUES
@@ -69,7 +69,7 @@
 	
 	<delete id="FileManageDAO.deleteFileDetail" parameterClass="FileVO" >
 		<![CDATA[
-			DELETE FROM COMTNFILEDETAIL
+			DELETE FROM BBM_FILE_DETAIL
 			WHERE
 				ATCH_FILE_ID = #atchFileId#
 			AND	
@@ -80,7 +80,7 @@
 	<select id="FileManageDAO.getMaxFileSN" parameterClass="FileVO" resultClass="java.lang.Integer">
 		<![CDATA[
 			SELECT IFNULL(MAX(FILE_SN),0)+1 AS FILE_SN
-			FROM COMTNFILEDETAIL
+			FROM BBM_FILE_DETAIL
 			WHERE ATCH_FILE_ID =  #atchFileId#		
 		]]>
 	</select>
@@ -91,7 +91,7 @@
 				ATCH_FILE_ID, FILE_CN, FILE_SN, FILE_STRE_COURS, STRE_FILE_NM,
 				FILE_EXTSN, ORIGNL_FILE_NM, FILE_SIZE
 			FROM
-				COMTNFILEDETAIL
+				BBM_FILE_DETAIL
 			WHERE
 				ATCH_FILE_ID = #atchFileId#
 			AND 
@@ -99,9 +99,9 @@
  		]]>
  	</select>
 
-	<update id="FileManageDAO.deleteCOMTNFILE" parameterClass="FileVO" >
+	<update id="FileManageDAO.deleteBBM_FILE" parameterClass="FileVO" >
 		<![CDATA[
-			UPDATE COMTNFILE
+			UPDATE BBM_FILE
 			SET USE_AT = 'N'
 			WHERE ATCH_FILE_ID = #atchFileId#
 		]]>
@@ -113,7 +113,7 @@
 				a.ATCH_FILE_ID, b.FILE_CN, b.FILE_SN, b.FILE_STRE_COURS, b.STRE_FILE_NM,
 				b.FILE_EXTSN, b.ORIGNL_FILE_NM, b.FILE_SIZE, a.CREAT_DT
 			FROM
-				COMTNFILE a, COMTNFILEDETAIL b
+				BBM_FILE a, BBM_FILE_DETAIL b
 			WHERE
 				a.ATCH_FILE_ID = b.ATCH_FILE_ID
 			AND 
@@ -136,7 +136,7 @@
 			SELECT 
 				COUNT(a.ATCH_FILE_ID)
 			FROM
-				COMTNFILE a, COMTNFILEDETAIL b
+				BBM_FILE a, BBM_FILE_DETAIL b
 			WHERE
 				a.ATCH_FILE_ID = b.ATCH_FILE_ID
 			AND 
@@ -156,7 +156,7 @@
 				a.ATCH_FILE_ID, b.FILE_CN, b.FILE_SN, b.FILE_STRE_COURS, b.STRE_FILE_NM,
 				b.FILE_EXTSN, b.ORIGNL_FILE_NM, b.FILE_SIZE, a.CREAT_DT
 			FROM
-				COMTNFILE a, COMTNFILEDETAIL b
+				BBM_FILE a, BBM_FILE_DETAIL b
 			WHERE
 				a.ATCH_FILE_ID = #atchFileId#
 			AND 
