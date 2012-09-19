@@ -49,7 +49,7 @@ _editor_url = "<c:url value='/html/egovframework/com/cmm/utl/htmlarea3.0/'/>";
 	}
 
 	function fn_egov_regist_notice(){
-		document.board.onsubmit();
+		//document.board.onsubmit();
 
 
 		var ntceBgnde = eval(document.getElementById("ntceBgnde").value);

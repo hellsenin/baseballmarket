@@ -147,7 +147,7 @@ public class FileManageDAO extends EgovComAbstractDAO {
      * @throws Exception
      */
     public void deleteAllFileInf(FileVO fvo) throws Exception {
-	update("FileManageDAO.deleteCOMTNFILE", fvo);
+	update("FileManageDAO.deleteBBM_FILE", fvo);
     }
 
     /**
