@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.bbm.cmm.LoginVO;
 import com.bbm.cmm.service.EgovFileMngService;
 import com.bbm.cmm.service.FileVO;
 import com.bbm.cmm.util.EgovUserDetailsHelper;
@@ -125,9 +126,10 @@ public class EgovFileDownloadController {
     	String atchFileId = (String)commandMap.get("atchFileId");
 	String fileSn = (String)commandMap.get("fileSn");
 
-	Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+	//Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+	LoginVO user = (LoginVO)request.getSession().getAttribute("loginVO");
 
-	if (isAuthenticated) {
+	if (user.getId()!=null) {
 
 	    FileVO fileVO = new FileVO();
 	    fileVO.setAtchFileId(atchFileId);
