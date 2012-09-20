@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bbm.cmm.LoginVO;
 import com.bbm.cmm.service.EgovFileMngService;
 import com.bbm.cmm.service.FileVO;
 import com.bbm.cmm.util.EgovUserDetailsHelper;
@@ -114,9 +115,10 @@ public class EgovFileMngController {
 	    HttpServletRequest request,
 	    ModelMap model) throws Exception {
 
-	Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+	//Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+    	LoginVO user = (LoginVO)request.getSession().getAttribute("loginVO");
 
-	if (isAuthenticated) {
+	if (user.getId()!=null) {
 	    fileService.deleteFileInf(fileVO);
 	}
 
@@ -160,6 +162,6 @@ public class EgovFileMngController {
 	
 	model.addAttribute("fileList", result);
 
-	return "bbm/cmm/fms/EgovImgFileList";
+	return "bbm/cmm/fms/ImgFileList";
     }
 }
