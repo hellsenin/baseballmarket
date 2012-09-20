@@ -5,7 +5,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%
  /**
-  * @Class Name : EgovImgFileList.jsp
+  * @Class Name : ImgFileList.jsp
   * @Description : 이미지 파일 조회화면
   * @Modification Information
   * @
