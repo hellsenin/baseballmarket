@@ -158,8 +158,14 @@ var section = "demos/draggable";
 		<td class="left-nav">
 			
 			<dl class="demos-nav">
-				<dt style="height: 100px;">로그인영역</dt>
-					<dd></dd>
+				
+					<dd>
+					
+					
+					</dd>
+				
+				
+									
 				<dt>야구용품 중고장터</dt>
 					<dd><a href="/demos/accordion">배트</a></dd>
 					<dd><a href="/demos/autocomplete">글러브</a></dd>
@@ -182,9 +188,9 @@ var section = "demos/draggable";
 
 			
 						<div id="demo-header">
-							<h2>Draggable</h2>
+							<img src="/images/tmp_img/728x90_WBC13.jpg" alt="" width="700" />
 						</div>
-						<div style="position: absolute; right: 27px" id="switcher"></div>
+						<!-- <div style="position: absolute; right: 27px" id="switcher"></div> -->
 						<div id="demo-config">
 							<div id="demo-frame-wrapper">
 								<p id="demo-link"><a href="/demos/draggable/default.html" target="_blank"><span class="ui-icon ui-icon-newwin"></span>New window</a></p>
